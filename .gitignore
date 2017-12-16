@@ -1,3 +1,5 @@
+.idea/
+
 */config/development
 */logs/log-*.php
 !*/logs/index.html
@@ -15,3 +17,15 @@ application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
 /vendor/
+
+# ASSETS
+assets/arquivos/
+assets/anexos/
+assets/uploads/
+
+# DOCS
+docs/System/UserProfile/
+docs/exibir/
+
+application/config/oonfig.php
+application/config/tadabase.php

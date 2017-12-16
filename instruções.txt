@@ -1,0 +1,68 @@
+Intruções de instalação e configuração
+---------------------------------------
+    ******************************
+
+
+---------------------------------------
+Dentro da pasta 'Application' -> 'Config' edite o arquivo 'config.php' na seguinte linha.
+
+$config['base_url']	= '';
+
+Aqui você colocará a url base de sua aplicação, se colocar na raiz do servidor por exemplo colocará assim: $config['base_url']	= 'http://127.0.0.1'; ou 'http://dominio.com'
+
+Se colocar dentro de uma pasta com nome por exemplo 'SC' ficará assim:
+
+17		$config['base_url']	= 'http://127.0.0.1/SC';
+
+
+Obs: Em alguns casos no ambiente local (localhost) é necessário especificar a porta.
+Exemplo: $config['base_url']	= 'http://127.0.0.1:3000/SC';
+---------------------------------------
+    ******************************
+
+
+---------------------------------------
+Dentro da pasta 'Application' -> 'Config' edite o arquivo 'database.php' e coloque os dados de acesso ao banco de dados.
+---------------------------------------
+    ******************************
+
+
+---------------------------------------
+***	Para ambiente de desenvolvimento	***
+---------------------------------------
+Dentro da pasta 'Application' -> 'Config' edite o arquivo 'config.php' na seguinte linha para alterar o log.
+
+183 		$config['log_threshold'] = 4; // todas as saídas do servidor
+
+Opções
+
+173		0 = Disables logging, Error logging TURNED OFF
+174		1 = Error Messages (including PHP errors)
+175		2 = Debug Messages
+176		3 = Informational Messages
+177		4 = All Messages
+---------------------------------------
+Dentro da pasta 'Application' -> 'Config' edite o arquivo 'database.php'
+altere a seguinte linha para obter DEBUG do banco de dador.
+
+58		$db['default']['db_debug'] = FALSE; // altere para TRUE
+---------------------------------------
+Na raiz do sistema, dentro de 'index.php' mude a seguinte linha para obter mensagens de erro geral de comportamento php
+
+21		define('ENVIRONMENT', 'development');
+
+Opções
+35		'development'
+39		'testing'
+40		'production'
+---------------------------------------
+    ******************************
+
+
+
+---------------------------------------
+Dados de acesso
+Email: admin@admin.com
+Senha: 123456
+---------------------------------------
+    ******************************
