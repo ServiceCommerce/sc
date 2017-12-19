@@ -30,3 +30,6 @@ docs/exibir/
 application/config/config.php
 */config/config.php
 */config/tadabase.php
+
+# SC
+sc/application/logs/*
