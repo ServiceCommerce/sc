@@ -1,12 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Conecte extends CI_Controller {
+class Client extends CI_Controller {
 
 	
 	public function __construct(){
 
 		parent::__construct();
-		//$this->load->model('Conecte_model');
+		$this->load->model('Client_model');
 
 	}
 
@@ -276,5 +276,5 @@ class Conecte extends CI_Controller {
 
 }
 
-/* End of file client.php */
-/* Location: ./application/controllers/client.php */
+/* End of file Client.php */
+/* Location: ./application/controllers/Client.php */

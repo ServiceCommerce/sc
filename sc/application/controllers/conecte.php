@@ -276,5 +276,5 @@ class Conecte extends CI_Controller {
 
 }
 
-/* End of file client.php */
-/* Location: ./application/controllers/client.php */
+/* End of file Client.php */
+/* Location: ./application/controllers/Client.php */
