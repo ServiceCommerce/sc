@@ -30,7 +30,7 @@ class Client extends CI_Controller {
         $this->form_validation->set_rules('telefone','Telefone','required|xss_clean|trim');
         $ajax = $this->input->get('ajax');
         if ($this->form_validation->run() == false) {
-            
+
             if($ajax == true){
                 $json = array('result' => false);
                 echo json_encode($json);
@@ -49,10 +49,10 @@ class Client extends CI_Controller {
             $this->db->where('email',$email);
             $this->db->where('telefone',$telefone);
             $this->db->limit(1);
-            $cliente = $this->db->get('clientes')->row();
+            $cliente = $this->db->get('contato')->row();
 
             if(count($cliente) > 0){
-                $dados = array('nome' => $cliente->nomeCliente, 'id' => $cliente->idClientes,'token' => 20540658, 'conectado' => TRUE);
+                $dados = array('nome' => 'teste', 'id' => 23,'token' => 20540658, 'conectado' => TRUE);
                 $this->session->set_userdata($dados);
 
                 if($ajax == true){
@@ -60,7 +60,7 @@ class Client extends CI_Controller {
                     echo json_encode($json);
                 }
                 else{
-                    redirect(base_url().'conecte');
+                    redirect(base_url().'client');
                 }
 
                 

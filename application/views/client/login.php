@@ -5,8 +5,8 @@
 <head>
         <title>Map Os</title><meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="<?php echo base_url()?>css/bootstrap.min.css" />
-        <link rel="stylesheet" href="<?php echo base_url()?>css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" href="<?php echo base_url()?>assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="<?php echo base_url()?>assets/css/bootstrap-responsive.min.css" />
         <link rel="stylesheet" href="<?php echo base_url()?>assets/css/matrix-login.css" />
         <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
@@ -14,7 +14,7 @@
     </head>
     <body>
         <div id="loginbox">            
-            <form  class="form-vertical" id="formLogin" method="post" action="<?php echo base_url()?>index.php/conecte/login">
+            <form  class="form-vertical" id="formLogin" method="post" action="<?php echo base_url()?>index.php/client/login">
                   <?php if($this->session->flashdata('error') != null){?>
                         <div class="alert alert-danger">
                           <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="form-actions" style="text-align: center">
-                    <button class="btn btn-info btn-large"/> Acessar</button>
+                    <button type="submit" class="btn btn-info btn-large"/> Acessar</button>
                 </div>
             </form>
        
