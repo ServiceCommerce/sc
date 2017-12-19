@@ -27,5 +27,6 @@ assets/uploads/
 docs/System/UserProfile/
 docs/exibir/
 
+application/config/config.php
 */config/config.php
 */config/tadabase.php
