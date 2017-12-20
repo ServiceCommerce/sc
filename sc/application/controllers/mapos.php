@@ -154,11 +154,13 @@ class Mapos extends CI_Controller {
             $usuario = $this->db->get('usuarios')->row();
             if(count($usuario) > 0){
 
+                if($usuario->img_url == null || $usuario->img_url == 'null'){
+                    $profile = base_url('docs/System/UserProfile/default-unisex.png');
+                }else{
+                    $profile = $usuario->img_url;
+                }
 
-                //$profile = $this->getProfile($usuario->idUsuarios);
-
-
-                $dados = array('nome' => $usuario->nome, 'id' => $usuario->idUsuarios,'permissao' => $usuario->permissoes_id , 'logado' => TRUE, 'dataCadastro' => $usuario->dataCadastro, 'profile' => $usuario->img_url);
+                $dados = array('nome' => $usuario->nome, 'id' => $usuario->idUsuarios,'permissao' => $usuario->permissoes_id , 'logado' => TRUE, 'dataCadastro' => $usuario->dataCadastro, 'profile' => $profile);
                 $this->session->set_userdata($dados);
 
                 if($ajax == true){
