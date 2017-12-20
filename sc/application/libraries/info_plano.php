@@ -21,7 +21,7 @@ class info_plano extends CI_Controller{
 	public $expo_servico;
 	public $suporte;
     public $imgProduto;
-    public $systemVersion = '0.2';
+    public $systemVersion = '0.2.1';
     public $dbVersion = '1.0';
 
 	public function __construct(){
