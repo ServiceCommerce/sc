@@ -5,9 +5,9 @@
 <head>
         <title>Map Os</title><meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="<?php echo base_url()?>assets/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="<?php echo base_url()?>assets/css/bootstrap-responsive.min.css" />
-        <link rel="stylesheet" href="<?php echo base_url()?>assets/css/matrix-login.css" />
+        <link rel="stylesheet" href="<?php echo base_url()?>assets/client/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="<?php echo base_url()?>assets/client/css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" href="<?php echo base_url()?>assets/client/css/matrix-login.css" />
         <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
         <script src="<?php echo base_url()?>js/jquery-1.10.2.min.js"></script>
@@ -21,7 +21,7 @@
                           <?php echo $this->session->flashdata('error');?>
                        </div>
                   <?php }?>
-                <div class="control-group normal_text"> <h3><img src="<?php echo base_url()?>assets/img/logo.png" alt="Logo" /></h3></div>
+                <div class="control-group normal_text"> <h3><img src="<?php echo base_url()?>assets/client/img/logo.png" alt="Logo" /></h3></div>
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
@@ -45,8 +45,8 @@
         
         
         
-        <script src="<?php echo base_url()?>assets/js/bootstrap.min.js"></script>
-        <script src="<?php echo base_url()?>js/jquery.validate.js"></script>
+        <script src="<?php echo base_url()?>assets/client/js/bootstrap.min.js"></script>
+        <script src="<?php echo base_url()?>assets/client/js/jquery.validate.js"></script>
 
 
 
