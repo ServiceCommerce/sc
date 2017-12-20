@@ -21,6 +21,8 @@ class info_plano extends CI_Controller{
 	public $expo_servico;
 	public $suporte;
     public $imgProduto;
+    public $systemVersion = 'v0.2';
+    public $dbVersion = 'v1.0';
 
 	public function __construct(){
 		$this->index();
@@ -51,5 +53,12 @@ class info_plano extends CI_Controller{
         return $this->imgProduto;
     }
 
-    
+    public function db_Version(){
+        return $this->dbVersion;
+    }
+
+    public function sc_version(){
+        return $this->systemVersion;
+    }
+
 }# End class Config_system{
