@@ -6,9 +6,14 @@ class Mapos extends CI_Controller {
         parent::__construct();
         $this->load->model('mapos_model','',TRUE);
         $this->load->library('encrypt');
+        $this->load->library('info_plano');
 
         $this->load->helper(array('form', 'codegen_helper'));
-        
+        $version = $this->info_plano->checkDbVersion($this->mapos_model->getDbVersion());
+
+        if($version[0] == true){
+            redirect('db_error/' . $version[1]);
+        }
     }
 
     public function index() {

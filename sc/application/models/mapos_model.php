@@ -5,6 +5,13 @@ class Mapos_model extends CI_Model {
         parent::__construct();
     }
 
+    function getDbVersion(){
+        $this->db->select('version');
+        $this->db->from('db_version');
+        $query = $this->db->get()->row();
+
+        return $query->version;
+    }
     
     function get($table,$fields,$where='',$perpage=0,$start=0,$one=false,$array='array'){
         

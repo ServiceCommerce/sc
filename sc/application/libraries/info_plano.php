@@ -21,8 +21,8 @@ class info_plano extends CI_Controller{
 	public $expo_servico;
 	public $suporte;
     public $imgProduto;
-    public $systemVersion = 'v0.2';
-    public $dbVersion = 'v1.0';
+    public $systemVersion = '0.2';
+    public $dbVersion = '1.0';
 
 	public function __construct(){
 		$this->index();
@@ -59,6 +59,18 @@ class info_plano extends CI_Controller{
 
     public function sc_version(){
         return $this->systemVersion;
+    }
+
+    public function checkDbVersion($currentVersion){
+        if($this->dbVersion != $currentVersion){
+            if($this->dbVersion > $currentVersion){
+               return array(true, 'Banco de dados desatualizado, versão requerida ' . $this->dbVersion);
+            }elseif($this->dbVersion < $currentVersion){
+                return array(true, 'Banco de dados não suportado ainda, versão requerida ' . $this->dbVersion);
+            }
+        }else{
+            return array(false);
+        }
     }
 
 }# End class Config_system{
