@@ -44,37 +44,22 @@
                     </td><!-- ./col -->
                 <?php } ?>
 
-                <?php if($this->permission->checkPermission($this->session->userdata('permissao'),'vServico')){ ?>
+                <?php if($this->permission->checkPermission($this->session->userdata('permissao'),'vCategoria')){ ?>
                     <td>
                         <!-- small box -->
                         <div class="small-box bg-yellow">
                             <div class="inner">
-                                <h3><?php echo $this->db->count_all('servicos');?></h3>
-                                <p><h4>Serviços</h4></p>
+                                <h3><?php echo $this->db->count_all('categoria_produto');?></i></h3>
+                                <p><h4>Categorias</h4></p>
                             </div>
                             <div class="icon">
-                                <i class="fa fa-gears"></i>
+                                <i class="fa fa-dashboard"></i>
                             </div>
-                            <a href="<?php echo base_url()?>index.php/servicos" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="<?php echo base_url()?>index.php/categorias" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </td><!-- ./col -->
                 <?php } ?>
 
-                <?php if($this->permission->checkPermission($this->session->userdata('permissao'),'vOs')){ ?>
-                    <td>
-                        <!-- small box -->
-                        <div class="small-box bg-red">
-                            <div class="inner">
-                                <h3><?php echo $this->db->count_all('os');?></h3>
-                                <p><h4>OS</h4></p>
-                            </div>
-                            <div class="icon">
-                                <i class="fa fa-tags"></i>
-                            </div>
-                            <a href="<?php echo base_url('index.php/os')?>" class="small-box-footer">Mais Informações <i class="fa fa-arrow-circle-right"></i></a>
-                        </div>
-                    </td><!-- ./col -->
-                <?php } ?>
             </tr>
             </tbody>
         </table>
