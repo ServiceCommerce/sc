@@ -13,8 +13,11 @@
         <script src="<?php echo base_url()?>js/jquery-1.10.2.min.js"></script>
     </head>
     <body>
-        <div id="loginbox">            
-            <form  class="form-vertical" id="formLogin" method="post" action="<?php echo base_url()?>index.php/client/login">
+    <?php
+    var_dump($this->session->userdata());
+    ?>
+        <div id="loginbox">
+            <form  class="form-vertical" id="formLogin" method="post" action="<?php echo base_url()?>index.php/login/check_login">
                   <?php if($this->session->flashdata('error') != null){?>
                         <div class="alert alert-danger">
                           <button type="button" class="close" data-dismiss="alert">&times;</button>

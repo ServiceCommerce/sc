@@ -6,7 +6,7 @@ class Client extends CI_Controller {
 	public function __construct(){
 
 		parent::__construct();
-		$this->load->model('Client_model');
+		$this->load->model('Client_model', 'client');
 
 	}
 
@@ -19,7 +19,7 @@ class Client extends CI_Controller {
 
 	public function sair(){
         $this->session->sess_destroy();
-        redirect('conecte');
+        redirect(base_url());
     }
 
 
@@ -86,14 +86,14 @@ class Client extends CI_Controller {
 
 
 	public function painel(){
-		
-		if((!$this->session->userdata('session_id')) || (!$this->session->userdata('conectado') || ($this->session->userdata('token') != 20540658))){
-        	redirect('conecte');
+
+        if((!$this->session->userdata('id')) || (!$this->session->userdata('conectado') || ($this->session->userdata('token') != 20540658))){
+            redirect(base_url());
         }
 
         $data['menuPainel'] = 'painel';
-		$data['compras'] = $this->Conecte_model->getLastCompras($this->session->userdata('id'));
-		$data['os'] = $this->Conecte_model->getLastOs($this->session->userdata('id'));
+		$data['compras'] = '';#$this->client->getLastCompras($this->session->userdata('id'));
+		$data['os'] = '';#$this->client->getLastOs($this->session->userdata('id'));
 		$data['output'] = 'client/painel';
 		$this->load->view('client/template',$data);
 
@@ -106,7 +106,7 @@ class Client extends CI_Controller {
         }
 
         $data['menuConta'] = 'conta';
-        $data['result'] = $this->Conecte_model->getDados();
+        $data['result'] = $this->client->getDados();
        
         $data['output'] = 'client/conta';
         $this->load->view('client/template',$data);
@@ -141,7 +141,7 @@ class Client extends CI_Controller {
                 'cep' => $this->input->post('cep')
             );
 
-            if ($this->Conecte_model->edit('clientes', $data, 'idClientes', $this->input->post('idClientes')) == TRUE) {
+            if ($this->client->edit('clientes', $data, 'idClientes', $this->input->post('idClientes')) == TRUE) {
                 $this->session->set_flashdata('success','Dados editados com sucesso!');
                 redirect(base_url() . 'index.php/client/conta');
             } else {
@@ -149,7 +149,7 @@ class Client extends CI_Controller {
             }
         }
 
-        $data['result'] = $this->Conecte_model->getDados();
+        $data['result'] = $this->client->getDados();
        
         $data['output'] = 'client/editar_dados';
         $this->load->view('client/template',$data);
@@ -166,7 +166,7 @@ class Client extends CI_Controller {
         
         
         $config['base_url'] = base_url().'index.php/client/compras/';
-        $config['total_rows'] = $this->Conecte_model->count('vendas',$this->session->userdata('id'));
+        $config['total_rows'] = $this->client->count('vendas',$this->session->userdata('id'));
         $config['per_page'] = 10;
         $config['next_link'] = 'Próxima';
         $config['prev_link'] = 'Anterior';
@@ -189,7 +189,7 @@ class Client extends CI_Controller {
         	
         $this->pagination->initialize($config); 	
 
-		$data['results'] = $this->Conecte_model->getCompras('vendas','*','',$config['per_page'],$this->uri->segment(3),'','',$this->session->userdata('id'));
+		$data['results'] = $this->client->getCompras('vendas','*','',$config['per_page'],$this->uri->segment(3),'','',$this->session->userdata('id'));
        
 	    $data['output'] = 'client/compras';
        	$this->load->view('client/template',$data);
@@ -207,7 +207,7 @@ class Client extends CI_Controller {
         
         
         $config['base_url'] = base_url().'index.php/client/os/';
-        $config['total_rows'] = $this->Conecte_model->count('os',$this->session->userdata('id'));
+        $config['total_rows'] = $this->client->count('os',$this->session->userdata('id'));
         $config['per_page'] = 10;
         $config['next_link'] = 'Próxima';
         $config['prev_link'] = 'Anterior';
@@ -230,7 +230,7 @@ class Client extends CI_Controller {
         	
         $this->pagination->initialize($config); 	
 
-		$data['results'] = $this->Conecte_model->getOs('os','*','',$config['per_page'],$this->uri->segment(3),'','',$this->session->userdata('id'));
+		$data['results'] = $this->client->getOs('os','*','',$config['per_page'],$this->uri->segment(3),'','',$this->session->userdata('id'));
        
 	    $data['output'] = 'client/os';
        	$this->load->view('client/template',$data);
