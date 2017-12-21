@@ -35,7 +35,7 @@
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
-                            <span class="add-on bg_ly"><i class="icon-star"></i></span><input name="telefone" type="text" placeholder="Telefone | Ex: 9999-9999" />
+                            <span class="add-on bg_ly"><i class="icon-star"></i></span><input name="telefone" id="telefone" type="text" placeholder="Telefone | Ex: 9999-9999" />
                         </div>
                     </div>
                 </div>
