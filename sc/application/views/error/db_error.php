@@ -25,33 +25,9 @@
         <a href="#"><b>Service</b>Commerce</a>
     </div><!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">Faça login para iniciar sua sessão</p>
-        <form  class="form-vertical" id="formLogin" method="post" action="<?php echo base_url()?>index.php/mapos/verificarLogin">
-            <?php if($this->session->flashdata('error') != null){?>
-                <div class="alert alert-danger">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <?php echo $this->session->flashdata('error');?>
-                </div>
-            <?php }?>
-
-            <div class="form-group has-feedback">
-
-                <input type="text" id="email" name="email" class="form-control" placeholder="Email" />
-                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-            </div>
-            <div class="form-group has-feedback">
-                <input name="senha" id="senha" type="password" class="form-control" placeholder="Password"/>
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            </div>
-            <div class="row">
-
-                <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Logar</button>
-                </div><!-- /.col -->
-            </div>
-        </form>
-
-        <a href="#">Esquieceu sua senha?</a><br>
+        <p class="login-box-msg"><h3 style="color: red;"><b>Erro de versão de DB</b></h3></p>
+        <p><b>VERSÃO ATUAL DO BANCO DE DADOS:  </b><?php echo $currentVersion?></p>
+        <p><b>VERSÃO REQUERIDA DO BANCO DE DADOS:  </b><?php echo $dbVersion?></p>
 
     </div><!-- /.login-box-body -->
 </div><!-- /.login-box -->

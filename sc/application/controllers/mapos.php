@@ -12,7 +12,7 @@ class Mapos extends CI_Controller {
         $version = $this->info_plano->checkDbVersion($this->mapos_model->getDbVersion());
 
         if($version[0] == true){
-            redirect('db_error/' . $version[1]);
+            redirect(base_url('index.php/erro/db_error_version'));
         }
     }
 
