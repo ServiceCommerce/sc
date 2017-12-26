@@ -33,3 +33,4 @@ application/config/config.php
 
 # SC
 sc/application/logs/*
+sc/docs/exibir/*
