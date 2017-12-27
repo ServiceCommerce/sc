@@ -109,9 +109,6 @@ class Client extends MY_Controller {
 
     public function editarDados($id = null){
 
-        if((!$this->session->userdata('session_id')) || (!$this->session->userdata('conectado') || ($this->session->userdata('token') != 20540658))){
-            redirect('conecte');
-        }
 
         $data['menuConta'] = 'conta';
 
@@ -150,15 +147,13 @@ class Client extends MY_Controller {
     }
 
 	public function compras(){
-		
-		if((!$this->session->userdata('session_id')) || (!$this->session->userdata('conectado') || ($this->session->userdata('token') != 20540658))){
-        	redirect('conecte');
-        }
+
+
 
         $data['menuVendas'] = 'vendas';
 		$this->load->library('pagination');
-        
-        
+
+
         $config['base_url'] = base_url().'index.php/client/compras/';
         $config['total_rows'] = $this->client->count('vendas',$this->session->userdata('id'));
         $config['per_page'] = 10;
@@ -180,11 +175,11 @@ class Client extends MY_Controller {
         $config['first_tag_close'] = '</li>';
         $config['last_tag_open'] = '<li>';
         $config['last_tag_close'] = '</li>';
-        	
-        $this->pagination->initialize($config); 	
 
-		$data['results'] = $this->client->getCompras('vendas','*','',$config['per_page'],$this->uri->segment(3),'','',$this->session->userdata('id'));
-       
+        $this->pagination->initialize($config);
+
+		//$data['results'] = $this->client->getCompras('vendas','*','',$config['per_page'],$this->uri->segment(3),'','',$this->session->userdata('id'));
+
 	    $data['output'] = 'client/compras';
        	$this->load->view('client/template',$data);
 
@@ -192,9 +187,7 @@ class Client extends MY_Controller {
 
 	public function os(){
 		
-		if((!$this->session->userdata('session_id')) || (!$this->session->userdata('conectado') || ($this->session->userdata('token') != 20540658))){
-        	redirect('conecte');
-        }
+
 
         $data['menuOs'] = 'os';
 		$this->load->library('pagination');
@@ -232,9 +225,7 @@ class Client extends MY_Controller {
 
 	public function visualizarOs($id = null){
 		
-		if((!$this->session->userdata('session_id')) || (!$this->session->userdata('conectado') || ($this->session->userdata('token') != 20540658))){
-        	redirect('conecte');
-        }
+
 
         $data['menuOs'] = 'os';
 		$this->data['custom_error'] = '';
@@ -252,9 +243,7 @@ class Client extends MY_Controller {
 
 	public function visualizarCompra($id = null){
 		
-		if((!$this->session->userdata('session_id')) || (!$this->session->userdata('conectado') || ($this->session->userdata('token') != 20540658))){
-        	redirect('conecte');
-        }
+
 
         $data['menuVendas'] = 'vendas';
 		$data['custom_error'] = '';
