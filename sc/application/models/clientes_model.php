@@ -28,7 +28,7 @@ class Clientes_model extends CI_Model {
         return $this->db->get('clientes')->row();
     }
     
-    function add($table,$data, $return_id){
+    function add($table,$data, $return_id=null){
         $this->db->insert($table, $data);         
         if ($this->db->affected_rows() == '1')
 		{
