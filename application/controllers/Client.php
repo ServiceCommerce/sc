@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Client extends CI_Controller {
+class Client extends MY_Controller {
 
 	
 	public function __construct(){
@@ -87,9 +87,6 @@ class Client extends CI_Controller {
 
 	public function painel(){
 
-        if((!$this->session->userdata('id')) || (!$this->session->userdata('conectado') || ($this->session->userdata('token') != 20540658))){
-            redirect(base_url());
-        }
 
         $data['menuPainel'] = 'painel';
 		$data['compras'] = '';#$this->client->getLastCompras($this->session->userdata('id'));
@@ -100,10 +97,7 @@ class Client extends CI_Controller {
 	}
 
 	public function conta(){
-		
-		if((!$this->session->userdata('session_id')) || (!$this->session->userdata('conectado') || ($this->session->userdata('token') != 20540658))){
-        	redirect('conecte');
-        }
+
 
         $data['menuConta'] = 'conta';
         $data['result'] = $this->client->getDados();
