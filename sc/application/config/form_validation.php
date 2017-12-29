@@ -45,8 +45,8 @@ $config = array(
                                     'label'=>'Estado',
                                     'rules'=>'required|trim|xss_clean'
                                 ))
-                ,
-                'editar_usuario' => array(array(
+            ,
+            'editar_usuario' => array(array(
                                     'field'=>'nome',
                                     'label'=>'Nome',
                                     'rules'=>'required|trim|xss_clean'
@@ -55,7 +55,23 @@ $config = array(
                                     'field'=>'email',
                                     'label'=>'Email',
                                     'rules'=>'required|trim|xss_clean'
+                                ),
+                                array(
+                                    'field'=>'situacao',
+                                    'label'=>'Situação',
+                                    'rules'=>'required|trim|xss_clean'
+                                ),
+                                array(
+                                    'field'=>'permissoes_id',
+                                    'label'=>'Permissão',
+                                    'rules'=>'required|trim|xss_clean'
+                                ),
+                                array(
+                                    'field'=>'senha',
+                                    'label'=>'Senha',
+                                    'rules'=>'required|trim|xss_clean'
                                 ))
+
                 ,
                 'editar_senha' => array(array(
                                     'field'=>'oldSenha',

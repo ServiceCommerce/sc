@@ -111,15 +111,10 @@ class Usuarios extends CI_Controller {
     
     function editar(){  
           
-        $this->load->library('form_validation');    
-		$this->data['custom_error'] = '';
-        $this->form_validation->set_rules('nome', 'Nome', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('telefone', 'Telefone', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('situacao', 'Situação', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('permissoes_id', 'Permissão', 'trim|required|xss_clean');
+        $this->load->library('form_validation');
 
-        if ($this->form_validation->run() == false)
+
+        if ($this->form_validation->run('editar_usuario') == false)
         {
              $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">'.validation_errors().'</div>' : false);
 
