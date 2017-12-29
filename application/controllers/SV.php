@@ -12,6 +12,10 @@ class SV extends CI_Controller {
         parent::__construct();
     }
 
+    public function painel(){
+        $this->load->view('sc/painel');
+    }
+
     public function politica_de_privacidade(){
         $this->load->view('sc/politica_de_privacidade');
     }
