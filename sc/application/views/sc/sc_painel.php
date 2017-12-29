@@ -98,6 +98,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <td>versão do sistema:</td>
                         <td><?php echo $sc_version;?></td>
                     </tr>
+                    <tr>
+                        <td>Versão requerida do banco de dados:</td>
+                        <?php echo '<td>'.$db_version.'</td>';?>
+                    </tr>
+                    <tr>
+                        <td>Versão atual do banco de dados:</td>
+                        <?php echo ($db_current !== null) ? ($db_current == $db_version)? '<td><b style="color: green">'.$db_current.'</b></td>' : '<td><b style="color: red">'.$db_current.'</b></td>' : '<td><b style="color: red">NÃO FOI POSSIVEL RESGATAR VERSÃO ATUAO DO BANCO DE DADOS</b></td>' ?>
+                    </tr>
                 </tbody>
             </table>
         </code>
