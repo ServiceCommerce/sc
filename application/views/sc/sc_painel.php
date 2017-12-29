@@ -77,7 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
-	<h1>Bem vinda ao Service Commerce!</h1>
+	<h1>Bem vinda ao painel de status I - Service Commerce!</h1>
 
 	<div id="body">
 		<p>Bem vinda a página inicial do SERVICE COMMERCE!</p>
@@ -114,7 +114,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <a href="<?php echo base_url('index.php/client') ?>">LOGIN</a> |
         </h3>
 
-        <p>Acesse o painel de status da aplicação central <a href="<?php echo base_url('sc/index.php/sc/sc_painel')?>"><b>PAINEL DE STATUS II</b></a></p>
+        <p>Acesse o <a href="<?php echo base_url('sc/index.php/sc/sc_painel')?>"><b>PAINEL DE STATUS II</b></a></p>
 
 	</div>
 

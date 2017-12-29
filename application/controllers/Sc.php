@@ -12,7 +12,7 @@ class Sc extends CI_Controller {
         parent::__construct();
     }
 
-    public function painel(){
+    public function sc_painel(){
         ($this->db == true) ? $this->data['db_conect'] = true : $this->data['db_conect'] = false;
 
         ($this->db->db_debug == true) ? $this->data['db_debug'] = true : $this->data['db_debug'] = false;

@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
-	<h1>Bem vinda ao Service Commerce!</h1>
+	<h1>Bem vinda ao painel de status II - Service Commerce!</h1>
 
 	<div id="body">
 		<p>Bem vinda a página inicial do SERVICE COMMERCE!</p>
@@ -110,8 +110,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </table>
         </code>
 
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
-	</div>
+        <h3>
+            <a href="<?php echo base_url() ?>">LOGIN</a> |
+        </h3>
+        <?php
+           $url = explode('sc/index.php/sc/sc_painel', current_url());
+           $url = $url[0].'index.php/sc/sc_painel';
+        ?>
+        <p>Acesse o <a href="<?php echo $url; ?>"><b>PAINEL DE STATUS I</b></a></p>
+
+    </div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
 </div>
