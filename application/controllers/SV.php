@@ -13,6 +13,6 @@ class SV extends CI_Controller {
     }
 
     public function politica_de_privacidade(){
-        $this->load->view('sv/politica_de_privacidade');
+        $this->load->view('sc/politica_de_privacidade');
     }
 }
