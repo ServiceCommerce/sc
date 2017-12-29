@@ -444,18 +444,18 @@ class Produtos extends CI_Controller{
             redirect(base_url() . 'index.php/produtos/gerenciar/');
         }
 
-        $this->db->where('produtos_id', $id);
-        $this->db->delete('produtos_os');
+        //$this->db->where('produtos_id', $id);
+        //$this->db->delete('produtos_os');
 
 
-        $this->db->where('produtos_id', $id);
-        $this->db->delete('itens_de_vendas');
+        //$this->db->where('produtos_id', $id);
+        //$this->db->delete('itens_de_vendas');
 
         if ($this->produtos->getById($id)->exibir == 1){
             $this->load->helper('file');
 
             foreach ($this->produtos->getIMG('url', array('produtos_id'=> $id)) as $item) {
-                $dir = explode( 'Service_commerce/', $item->url);
+                $dir = explode( base_url(), $item->url);
                 unlink('.'.$dir[1]);
             }
 
@@ -497,7 +497,7 @@ class Produtos extends CI_Controller{
 
 
         // Set configurações de Upload
-        $config['upload_path'] = './docs/Exibir/';
+        $config['upload_path'] = './docs/Exibir/produtos/';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = '';
         $config['max_width'] = '';
@@ -537,7 +537,7 @@ class Produtos extends CI_Controller{
                     $q = array(
                         'nomeImagem' => $data['file_name'],
                         'tipo' => $data['file_ext'],
-                        'url' => base_url() . '/docs/Exibir/' . $data['file_name'],
+                        'url' => base_url() . '/docs/Exibir/produtos/' . $data['file_name'],
                         'cadastro' => date('Ymd'),
                         'produtos_id' => $id,
                     );
