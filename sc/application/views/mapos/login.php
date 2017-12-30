@@ -22,6 +22,7 @@
 <body class="login-page">
 <div class="login-box">
     <div class="login-logo">
+        <img style="max-width: 50%" src="<?php echo base_url('docs/System/img/logosc.png');?>">
         <a href="#"><b>Service</b>Commerce</a>
     </div><!-- /.login-logo -->
     <div class="login-box-body">
