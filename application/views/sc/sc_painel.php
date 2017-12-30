@@ -111,7 +111,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <h3>
             <a href="<?php echo base_url('index.php/home') ?>">HOME</a> |
             <a href="<?php echo base_url('index.php/shop') ?>">SHOP</a> |
-            <a href="<?php echo base_url('index.php/client') ?>">LOGIN</a> |
+            <a href="<?php echo base_url('index.php/login') ?>">LOGIN</a> |
         </h3>
 
         <p>Acesse o <a href="<?php echo base_url('sc/index.php/sc/sc_painel')?>"><b>PAINEL DE STATUS II</b></a></p>
