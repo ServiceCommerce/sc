@@ -8,6 +8,8 @@ class Mapos_model extends CI_Model {
     function getDbVersion(){
         $this->db->select('version');
         $this->db->from('db_version');
+        $this->db->limit(1);
+        $this->db->order_by('id', 'desc');
         $query = $this->db->get()->row();
 
         if($query){
