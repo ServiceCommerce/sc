@@ -119,15 +119,12 @@ class Mapos extends CI_Controller {
         $db_current = $this->mapos_model->getDbVersion();
         if($this->db != true || $db_version !== $db_current){
             redirect(base_url('index.php/sc/sc_painel'));
+        }else{
+            if(($this->session->userdata('logado'))){
+                redirect(base_url() . 'index.php/dashboard');
+            }
+            $this->load->view('mapos/login');
         }
-        if(1 == 1 && 1 == 2){
-            echo '2';
-        }
-        if(($this->session->userdata('logado'))){
-            redirect(base_url() . 'index.php/dashboard');
-        }
-        $this->load->view('mapos/login');
-
     }
 
     public function sair(){
