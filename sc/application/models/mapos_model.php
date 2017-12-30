@@ -10,7 +10,12 @@ class Mapos_model extends CI_Model {
         $this->db->from('db_version');
         $query = $this->db->get()->row();
 
-        return $query->version;
+        if($query){
+            return $query->version;
+        }else{
+            return null;
+        }
+
     }
     
     function get($table,$fields,$where='',$perpage=0,$start=0,$one=false,$array='array'){
