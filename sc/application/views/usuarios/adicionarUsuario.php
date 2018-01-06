@@ -33,7 +33,7 @@
                                 </tr>
                                 <tr>
                                     <td><label for="senha" class="control-label">Senha<span class="required">*</span></label></td>
-                                    <td><input class="form-control" id="senha" type="password" name="senha" /></td>
+                                    <td><input class="form-control" id="senha" type="password" name="senha" size="20" minlength="6" /></td>
                                 </tr>
                                 <tr>
                                     <td><label  class="control-label">Situação*</label></td>

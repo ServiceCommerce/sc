@@ -61,8 +61,11 @@
 <script type="text/javascript">
     $(document).ready(function(){
 
-        $('#email').focus();
-        $("#formLogin").validate({
+        var filtro = /[^@-.w]|^[_@.-]|[._-]{2}|[@.]{2}|(@)[^@]*1/;
+        if(fitro.test(email.value)){
+
+            $('#email').focus();
+            $("#formLogin").validate({
             rules :{
                 email: { required: true, email: true},
                 senha: { required: true}
@@ -71,6 +74,7 @@
                 email: { required: 'Campo Requerido.', email: 'Insira Email válido'},
                 senha: {required: 'Campo Requerido.'}
             },
+
             submitHandler: function( form ){
                 var dados = $( form ).serialize();
 
@@ -89,8 +93,11 @@
                             $('#call-modal').trigger('click');
                         }
                     }
-                });
 
+        }
+
+            
+    });
                 return false;
             },
 

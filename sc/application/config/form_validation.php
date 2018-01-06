@@ -8,22 +8,22 @@ $config = array(
 								array(
                                 	'field'=>'documento',
                                 	'label'=>'CPF/CNPJ',
-                                	'rules'=>'required|trim|xss_clean'
+                                	'rules'=>'required|trim|xss_clean|max_length [11]'
                                 ),
                                 array(
                                     'field'=>'email',
                                     'label'=>'E-mail',
-                                    'rules'=>'required|trim|xss_clean'
+                                    'rules'=>'required|is_unique[users.email]|trim|xss_clean'
                                 ),
                                 array(
                                     'field'=>'telefone',
                                     'label'=>'Telefone',
-                                    'rules'=>'required|trim|xss_clean'
+                                    'rules'=>'required|trim|xss_clean|numeric'
                                 ),
                                 array(
                                     'field'=>'numero',
                                     'label'=>'Numero',
-                                    'rules'=>'required|trim|xss_clean'
+                                    'rules'=>'required|trim|xss_clean|numeric'
                                 ),
                                 array(
                                     'field'=>'bairro',
@@ -33,7 +33,7 @@ $config = array(
                                 array(
                                     'field'=>'cep',
                                     'label'=>'CEP',
-                                    'rules'=>'required|trim|xss_clean'
+                                    'rules'=>'required|trim|xss_clean|max_length[8]|numeric'
                                 ),
                                 array(
                                     'field'=>'cidade',
@@ -54,23 +54,23 @@ $config = array(
                                 array(
                                     'field'=>'email',
                                     'label'=>'Email',
-                                    'rules'=>'required|trim|xss_clean'
+                                    'rules'=>'required|trim|xss_clean '
                                 ))
                 ,
                 'editar_senha' => array(array(
                                     'field'=>'oldSenha',
                                     'label'=>'senha',
-                                    'rules'=>'required|trim|xss_clean'
+                                    'rules'=>'required|trim|xss_clean|min_length[6]|regex_match[/a-z0-9/]'
                                 ),
                                 array(
                                     'field'=>'novaSenha',
                                     'label'=>'Nova Senha',
-                                    'rules'=>'required|trim|xss_clean'
+                                    'rules'=>'required|trim|xss_clean|min_length[6]|regex_match[/a-z0-9/]'
                                 ),
                                 array(
                                     'field'=>'novaSenha2',
                                     'label'=>'Confirmação',
-                                    'rules'=>'required|trim|xss_clean'
+                                    'rules'=>'required|trim|xss_clean|min_length[6]|regex_match[/a-z0-9/]'
                                 ))
                 ,
                 'servicos' => array(array(
@@ -86,7 +86,7 @@ $config = array(
                                 array(
                                     'field'=>'preco',
                                     'label'=>'',
-                                    'rules'=>'required|trim|xss_clean'
+                                    'rules'=>'required|trim|xss_clean|decimal'
                                 ))
                 ,
                 'produtos' => array(array(
@@ -97,48 +97,48 @@ $config = array(
                                 array(
                                     'field'=>'unidade',
                                     'label'=>'Unidade',
-                                    'rules'=>'required|trim|xss_clean'
+                                    'rules'=>'required|trim|xss_clean|numeric'
                                 ),
                                 array(
                                     'field'=>'precoCompra',
-                                    'label'=>'Preo de Compra',
-                                    'rules'=>'required|trim|xss_clean'
+                                    'label'=>'Preço de Compra',
+                                    'rules'=>'required|trim|xss_clean|decimal'
                                 ),
                                 array(
                                     'field'=>'precoVenda',
-                                    'label'=>'Preo de Venda',
-                                    'rules'=>'required|trim|xss_clean'
+                                    'label'=>'Preço de Venda',
+                                    'rules'=>'required|trim|xss_clean|decimal'
                                 ),
                                 array(
                                     'field'=>'estoque',
                                     'label'=>'Estoque',
-                                    'rules'=>'trim|xss_clean'
+                                    'rules'=>'trim|xss_clean|numeric'
                                 ),
                                 array(
                                     'field'=>'estoqueMinimo',
                                     'label'=>'Estoque Mnimo',
-                                    'rules'=>'trim|xss_clean'
+                                    'rules'=>'trim|xss_clean|numeric'
                                 ))
                 ,
                 'usuarios' => array(array(
                                     'field'=>'nome',
                                     'label'=>'Nome',
-                                    'rules'=>'required|trim|xss_clean'
+                                    'rules'=>'required|trim|xss_clean|alfa'
                                 ),
                                 array(
                                     'field'=>'email',
                                     'label'=>'Email',
-                                    'rules'=>'required|trim|valid_email|xss_clean'
+                                    'rules'=>'required|trim|valid_email|is_unique[users.email]|xss_clean'
                                 ),
                                 array(
                                     'field'=>'senha',
                                     'label'=>'Senha',
-                                    'rules'=>'required|trim|xss_clean'
+                                    'rules'=>'required|trim|xss_clean|min_length[6]|regex_match[/a-z0-9/]'
                                 ),
                                 array(
                                     'field'=>'situacao',
                                     'label'=>'Situacao',
-                                    'rules'=>'required|trim|xss_clean'
+                                    'rules'=>'required|trim|xss_clean|'
                                 ))
                 ,      
                 'os' => array(array(
@@ -213,7 +213,7 @@ $config = array(
                                 array(
                                     'field'=>'valor',
                                     'label'=>'Valor',
-                                    'rules'=>'required|trim|xss_clean'
+                                    'rules'=>'required|trim|xss_clean|decimal'
                                 ),
                                 array(
                                     'field'=>'vencimento',
@@ -240,7 +240,7 @@ $config = array(
                                 array(
                                     'field'=>'valor',
                                     'label'=>'Valor',
-                                    'rules'=>'required|trim|xss_clean'
+                                    'rules'=>'required|trim|xss_clean|decimal'
                                 ),
                                 array(
                                     'field'=>'vencimento',
@@ -291,5 +291,7 @@ $config = array(
                                 'label'=>'Descrição',
                                 'rules'=>'required'
                                 ))
-		);
-			   
+    
+		); 
+
+	    

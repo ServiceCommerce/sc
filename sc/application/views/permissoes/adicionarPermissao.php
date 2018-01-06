@@ -37,7 +37,7 @@
                                                 <tbody>
                                                 <tr>
                                                     <td><label>Nome da Permissão</label>
-                                                        <input name="nome" type="text" id="nome" class="form-control" />
+                                                        <input name="nome" type="text" id="nome" class="form-control" size="10" minlength="6" />
                                                     </td>
                                                     <td>
                                                         <input name="marcarTodos" type="checkbox" value="1" id="marcarTodos" />

@@ -26,7 +26,7 @@ class Conecte extends CI_Controller {
     public function login(){
 
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('email','Email','valid_email|required|xss_clean|trim');
+        $this->form_validation->set_rules('email','Email','valid_email|required|is_unique[users.email]|xss_clean|trim');
         $this->form_validation->set_rules('telefone','Telefone','required|xss_clean|trim');
         $ajax = $this->input->get('ajax');
         if ($this->form_validation->run() == false) {
