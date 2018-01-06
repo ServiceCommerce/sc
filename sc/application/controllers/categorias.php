@@ -3,15 +3,12 @@
 
 */
 
-class Categorias extends CI_Controller {
+class Categorias extends MY_Controller {
     
    
 
     function __construct() {
         parent::__construct();
-        if ((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))) {
-            redirect('mapos/login');
-        }
 
         $this->load->helper(array('form', 'codegen_helper'));
        // $this->load->model('produtos_model', 'produtos', TRUE);

@@ -1,12 +1,10 @@
 <?php
 
-class Permissoes extends CI_Controller {
+class Permissoes extends MY_Controller {
     
     function __construct() {
         parent::__construct();
-        if ((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))) {
-            redirect('mapos/login');
-        }
+
 
         if(!$this->permission->checkPermission($this->session->userdata('permissao'),'cPermissao')){
           $this->session->set_flashdata('error','Perm-10001');

@@ -16,14 +16,12 @@
  * - ADICIONAR_SITE -
  */
 
-class Produtos extends CI_Controller{
+class Produtos extends MY_Controller{
     private $dados_produto;
 
     function __construct(){
         parent::__construct();
-        if ((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))) {
-            redirect('mapos/login');
-        }
+
 
         $this->load->helper(array('form', 'codegen_helper', 'url'));
         $this->load->model('produtos_model', 'produtos', TRUE);

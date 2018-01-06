@@ -1,12 +1,11 @@
 <?php
 
-class Usuarios extends CI_Controller {
+class Usuarios extends MY_Controller {
     
     function __construct() {
         parent::__construct();
-        if ((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))) {
-            redirect('mapos/login');
-        }
+
+
         if(!$this->permission->checkPermission($this->session->userdata('permissao'),'cUsuario')){
           $this->session->set_flashdata('error','User-10001');
           redirect(base_url());
