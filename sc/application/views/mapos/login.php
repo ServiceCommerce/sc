@@ -27,7 +27,7 @@
     </div><!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">Faça login para iniciar sua sessão</p>
-        <form  class="form-vertical" id="formLogin" method="post" action="<?php echo base_url()?>index.php/mapos/verificarLogin">
+        <form  class="form-vertical" id="formLogin" method="post" action="<?php echo base_url()?>index.php/login/verificarLogin">
             <?php if($this->session->flashdata('error') != null){?>
                 <div class="alert alert-danger">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
