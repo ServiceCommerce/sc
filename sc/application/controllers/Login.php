@@ -9,9 +9,14 @@
 class Login extends CI_Controller {
     function __construct(){
         parent::__construct();
+        $this->load->model('mapos_model','',TRUE);
+        $this->load->library('encrypt');
+        $this->load->library('info_plano');
+
+        $this->load->helper(array('form', 'codegen_helper'));
     }
 
-    public function index(){
+    public function login(){
         if(($this->session->userdata('logado'))){
             redirect(base_url() . 'index.php/dashboard');
         }
