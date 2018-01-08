@@ -4,6 +4,8 @@
  * User: Dinho
  * Date: 06/01/2018
  * Time: 14:05
+ * Classe responsável por extender CI_Controller do CORE do sistema.
+ * Tendo como finalidade prover alterações na raiz da aplicação.
  */
 
 class MY_Controller extends CI_Controller {
@@ -17,4 +19,4 @@ class MY_Controller extends CI_Controller {
         }
     }#End construct
 
-}
+}#End class
