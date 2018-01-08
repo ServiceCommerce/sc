@@ -66,7 +66,7 @@
                         <div class="box-body">
                             <div class="row"  style="padding-left: 10px">
                                 <div class="col-md-3 btn btn-primary">
-                                    <?php  echo form_open_multipart(base_url().'index.php/mapos/addProfile');?>
+                                    <?php  echo form_open_multipart(base_url().'index.php/usuarios/addProfile');?>
                                     <img src="<?php echo $this->session->userdata('profile') ?>" class="img-circle" style="max-height: 200px; max-width: 200px;" alt="User Image"/>
 
                                     <input type="file" class="upload" name="imgfile" id="imgfile">

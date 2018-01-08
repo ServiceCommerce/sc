@@ -89,7 +89,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="<?php echo base_url();?>index.php/mapos/minhaConta" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="<?php echo base_url();?>index.php/usuarios/minhaConta" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="<?php echo base_url();?>index.php/mapos/sair" class="btn btn-default btn-flat">Sair</a>
