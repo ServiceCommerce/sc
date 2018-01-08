@@ -11,8 +11,7 @@ class Web extends CI_Controller {
     function __construct(){
         parent::__construct();
 
-        //$this->load->library('web');
-
+        $this->load->library('site');
     }#End __construct()
 
     public function home(){
