@@ -66,6 +66,7 @@ class Mapos extends CI_Controller {
      
     }
 
+    /*
     public function alterarSenha() {
         if((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))){
             redirect('mapos/login');
@@ -97,6 +98,7 @@ class Mapos extends CI_Controller {
             }
         }
     }
+    */
 
     public function pesquisar() {
         if((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))){
@@ -115,10 +117,12 @@ class Mapos extends CI_Controller {
       
     }
 
+    /*
     public function sair(){
         $this->session->sess_destroy();
         redirect(base_url());
     }
+    */
 
     public function backup(){
 
@@ -167,6 +171,7 @@ class Mapos extends CI_Controller {
         $this->load->view('tema/header',$data);
     }
 
+    /*
     function do_upload(){
         if((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))){
             redirect('mapos/login');
@@ -205,7 +210,7 @@ class Mapos extends CI_Controller {
         }
 
     }
-
+    */
 
     public function cadastrarEmitente() {
         if((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))){
