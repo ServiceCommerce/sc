@@ -11,6 +11,13 @@
 class Core extends MY_Controller {
     function __construct(){
         parent::__construct();
+
+        $this->load->model('mapos_model','',TRUE);
+        $this->load->library('encrypt');
+        $this->load->library('info_plano');
+
+        $this->load->helper(array('form', 'codegen_helper'));
+
     }#End __construct
 
     // metodo responsável por ditar senhas dos usuários do sistema.
