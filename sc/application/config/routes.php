@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "mapos/login";
+$route['default_controller'] = "Login";
 
 $route['dashboard'] = "mapos/index";
 $route['servico'] = 'site/servico';
