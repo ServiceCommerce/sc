@@ -34,74 +34,6 @@ class Mapos extends CI_Controller {
       
     }
 
-    /*
-    public function minhaConta() {
-        if((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))){
-            redirect('mapos/login');
-        }
-        $this->load->library('form_validation');
-        if ($this->form_validation->run('editar_usuario') == false) {
-            $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
-        } else {
-            $query = array(
-                'nome' => $this->input->post('nome'),
-                'email'=> $this->input->post('email')
-            );
-            $this->load->model('usuarios_model', 'usuarios');
-            if($this->usuarios->edit('usuarios', $query, 'idUsuarios', $this->session->userdata('id'))){
-                $this->session->set_flashdata('success', 'Syst-005');
-                redirect(base_url('index.php/mapos/minhaConta'));
-            }
-        }
-
-        $this->load->model('contatos_model', 'contato', true);
-
-        $this->data['usuario'] = $this->mapos_model->getById($this->session->userdata('id'));
-
-        $this->data['title'] = 'Minha conta';
-
-
-
-        $this->data['view'] = 'mapos/minhaConta';
-        $this->load->view('tema/header',  $this->data);
-     
-    }
-    /*
-
-    /*
-    public function alterarSenha() {
-        if((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))){
-            redirect('mapos/login');
-        }
-
-        $this->load->library('form_validation');
-        if ($this->form_validation->run('editar_senha') == false) {
-            $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
-        } else {
-            $oldSenha = $this->input->post('oldSenha');
-            $senha = $this->input->post('novaSenha');
-            $senha2 = $this->input->post('novaSenha2');
-
-            if($senha == $senha2){
-                $oldSenha = $this->encrypt->sha1($oldSenha);
-                $senha = $this->encrypt->sha1($senha);
-                $result = $this->mapos_model->alterarSenha($senha,$oldSenha,$this->session->userdata('id'));
-                if($result){
-                    $this->session->set_flashdata('success','Syst-001');
-                    redirect(base_url() . 'index.php/mapos/minhaConta');
-                }
-                else{
-                    $this->session->set_flashdata('error','Syst-10001');
-                    redirect(base_url() . 'index.php/mapos/minhaConta');
-                }
-            }else{
-                $this->session->set_flashdata('error','Syst-10002');
-                redirect(base_url() . 'index.php/mapos/minhaConta');
-            }
-        }
-    }
-    */
-
     public function pesquisar() {
         if((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))){
             redirect('mapos/login');
@@ -118,43 +50,6 @@ class Mapos extends CI_Controller {
         $this->load->view('tema/topo',  $this->data);
       
     }
-
-    /*
-    public function sair(){
-        $this->session->sess_destroy();
-        redirect(base_url());
-    }
-    */
-
-    /*
-    public function backup(){
-
-        if((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))){
-            redirect('mapos/login');
-        }
-
-        if(!$this->permission->checkPermission($this->session->userdata('permissao'),'cBackup')){
-           $this->session->set_flashdata('error','Syst-10003');
-           redirect(base_url());
-        }
-
-        
-        
-        $this->load->dbutil();
-        $prefs = array(
-                'format'      => 'zip',
-                'filename'    => 'backup'.date('d-m-Y').'.sql'
-              );
-
-        $backup =& $this->dbutil->backup($prefs);
-
-        $this->load->helper('file');
-        write_file(base_url().'backup/backup.zip', $backup);
-
-        $this->load->helper('download');
-        force_download('backup'.date('d-m-Y H:m:s').'.zip', $backup);
-    }
-    */
 
     public function emitente(){   
 
@@ -173,47 +68,6 @@ class Mapos extends CI_Controller {
         $data['view'] = 'mapos/emitente';
         $this->load->view('tema/header',$data);
     }
-
-    /*
-    function do_upload(){
-        if((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))){
-            redirect('mapos/login');
-        }
-
-        if(!$this->permission->checkPermission($this->session->userdata('permissao'),'cEmitente')){
-           $this->session->set_flashdata('error','Syst-10005');
-           redirect(base_url());
-        }
-
-        $this->load->library('upload');
-
-        $image_upload_folder = FCPATH . 'assets/uploads';
-
-        if (!file_exists($image_upload_folder)) {
-            mkdir($image_upload_folder, DIR_WRITE_MODE, true);
-        }
-
-        $this->upload_config = array(
-            'upload_path'   => $image_upload_folder,
-            'allowed_types' => 'png|jpg|jpeg|bmp',
-            'max_size'      => 2048,
-            'remove_space'  => TRUE,
-            'encrypt_name'  => TRUE,
-        );
-
-        $this->upload->initialize($this->upload_config);
-
-        if (!$this->upload->do_upload()) {
-            $upload_error = $this->upload->display_errors();
-            print_r($upload_error);
-            exit();
-        } else {
-            $file_info = array($this->upload->data());
-            return $file_info[0]['file_name'];
-        }
-
-    }
-    */
 
     public function cadastrarEmitente() {
         if((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))){
@@ -369,57 +223,5 @@ class Mapos extends CI_Controller {
         }
 
     }
-
-    /*
-    public function addProfile(){
-
-        $this->load->library('upload');
-
-        $config['upload_path'] = './docs/System/UserProfile/';
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = '';
-        $config['max_width'] = '';
-        $config['max_height'] = '';
-        $config['file_name'] = 'UserProfile-'. date('Ymdsu');
-        // set biblioteca de upload
-        $this->upload->initialize($config);
-
-        // Caso o arquivo não tenha sido upado
-        if (!$this->upload->do_upload('imgfile')){
-
-            $this->session->set_flashdata('error', 'Syst-10016');
-            redirect(base_url().'index.php/mapos/minhaConta');
-
-        }else{
-
-            $data = $this->upload->data();
-
-            $url_img = base_url().'docs/System/userProfile/'. $data['file_name'];
-            // Monta a QUERY
-            $q = array('img_url' => $url_img);
-
-            unlink('docs/system/userprofile/'. $data['filme_name']);
-
-            // caso não seja possivel inserir no banco de dados
-            $up = $this->mapos_model->edit('usuarios', $q, 'idUsuarios', $this->session->userdata('id'));
-
-
-            if ($up == true) {
-
-                $this->session->set_userdata('profile', $url_img);
-
-                $this->session->set_flashdata('error', 'Syst-10007');
-
-                redirect(base_url().'index.php/mapos/minhaConta');
-            }else{ // tudo OK
-                $this->session->set_flashdata('success', 'Syst-004');
-
-                #$this->setProfileSession($q['url']);
-
-                redirect(base_url().'index.php/mapos/minhaConta');
-            }
-        }
-    }#End imageProfile(){
-    */
 
 }
