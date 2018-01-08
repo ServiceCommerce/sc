@@ -13,6 +13,7 @@ class Usuarios extends MY_Controller {
 
         $this->load->helper(array('form', 'codegen_helper'));
         $this->load->model('usuarios_model', '', TRUE);
+        $this->load->model('mapos_model', '', TRUE);
         $this->data['menuUsuarios'] = 'Usuários';
         $this->data['menuConfiguracoes'] = 'Configurações';
         $this->data['title'] = 'Usuários';
@@ -23,10 +24,10 @@ class Usuarios extends MY_Controller {
 		$this->gerenciar();
 	}
 
+	// tela de gerenciamento de usuários
 	function gerenciar(){
         
         $this->load->library('pagination');
-
 
         $config['base_url'] = base_url().'index.php/usuarios/gerenciar/';
         $config['total_rows'] = $this->usuarios_model->count('usuarios');
@@ -60,9 +61,7 @@ class Usuarios extends MY_Controller {
 	    $this->data['view'] = 'usuarios/usuarios';
        	$this->load->view('tema/header',$this->data);
 
-       
-		
-    }
+    }#END gerenciar()
 	
     function adicionar(){  
           
@@ -104,14 +103,12 @@ class Usuarios extends MY_Controller {
         $this->data['permissoes'] = $this->permissoes_model->getActive('permissoes','permissoes.idPermissao,permissoes.nome');   
 		$this->data['view'] = 'usuarios/adicionarUsuario';
         $this->load->view('tema/header',$this->data);
-   
-       
-    }	
+
+    }#End adicionar()
     
     function editar(){  
           
         $this->load->library('form_validation');
-
 
         if ($this->form_validation->run('editar_usuario') == false)
         {
@@ -151,7 +148,6 @@ class Usuarios extends MY_Controller {
 
             }  
 
-           
 			if ($this->usuarios_model->edit('usuarios',$data,'idUsuarios',$this->input->post('idUsuarios')))
 			{
                 $this->session->set_flashdata('success','User-002');
@@ -172,14 +168,98 @@ class Usuarios extends MY_Controller {
 
 		$this->data['view'] = 'usuarios/editarUsuario';
         $this->load->view('tema/header',$this->data);
-			
-      
-    }
-	
+
+
+    }#End editar()
+
     function excluir(){
             $ID =  $this->uri->segment(3);
             $this->usuarios_model->delete('usuarios','idUsuarios',$ID);             
             redirect(base_url().'index.php/usuarios/gerenciar/');
+    }#End excluir()
+
+    // Metodo responsável por alterar imagem de perfil do usuário
+    public function addProfile(){
+
+        $this->load->library('upload');
+
+        $config['upload_path'] = './docs/System/UserProfile/';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size'] = '';
+        $config['max_width'] = '';
+        $config['max_height'] = '';
+        $config['file_name'] = 'UserProfile-'. date('Ymdsu');
+        // set biblioteca de upload
+        $this->upload->initialize($config);
+
+        // Caso o arquivo não tenha sido upado
+        if (!$this->upload->do_upload('imgfile')){
+
+            $this->session->set_flashdata('error', 'Syst-10016');
+            redirect(base_url().'index.php/mapos/minhaConta');
+
+        }else{
+
+            $data = $this->upload->data();
+
+            $url_img = base_url().'docs/System/userProfile/'. $data['file_name'];
+            // Monta a QUERY
+            $q = array('img_url' => $url_img);
+
+            unlink('docs/system/userprofile/'. $data['filme_name']);
+
+            // caso não seja possivel inserir no banco de dados
+            $up = $this->mapos_model->edit('usuarios', $q, 'idUsuarios', $this->session->userdata('id'));
+
+
+            if ($up == true) {
+
+                $this->session->set_userdata('profile', $url_img);
+
+                $this->session->set_flashdata('error', 'Syst-10007');
+
+                redirect(base_url().'index.php/mapos/minhaConta');
+            }else{ // tudo OK
+                $this->session->set_flashdata('success', 'Syst-004');
+
+                #$this->setProfileSession($q['url']);
+
+                redirect(base_url().'index.php/mapos/minhaConta');
+            }
+        }
+    }#End imageProfile()
+
+    // Tela MINHA CONTA
+    public function minhaConta() {
+        if((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))){
+            redirect('mapos/login');
+        }
+        $this->load->library('form_validation');
+        if ($this->form_validation->run('editar_usuario') == false) {
+            $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
+        } else {
+            $query = array(
+                'nome' => $this->input->post('nome'),
+                'email'=> $this->input->post('email')
+            );
+            $this->load->model('usuarios_model', 'usuarios');
+            if($this->usuarios->edit('usuarios', $query, 'idUsuarios', $this->session->userdata('id'))){
+                $this->session->set_flashdata('success', 'Syst-005');
+                redirect(base_url('index.php/mapos/minhaConta'));
+            }
+        }
+
+        $this->load->model('contatos_model', 'contato', true);
+
+        $this->data['usuario'] = $this->mapos_model->getById($this->session->userdata('id'));
+
+        $this->data['title'] = 'Minha conta';
+
+
+
+        $this->data['view'] = 'mapos/minhaConta';
+        $this->load->view('tema/header',  $this->data);
+
     }
-}
+}#End class
 

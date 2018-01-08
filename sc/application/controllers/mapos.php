@@ -4,7 +4,7 @@ class Mapos extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('mapos_model','',TRUE);
+        $this->load->model('mapos_model','');
         $this->load->library('encrypt');
         $this->load->library('info_plano');
 
@@ -34,6 +34,7 @@ class Mapos extends CI_Controller {
       
     }
 
+    /*
     public function minhaConta() {
         if((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))){
             redirect('mapos/login');
@@ -65,6 +66,7 @@ class Mapos extends CI_Controller {
         $this->load->view('tema/header',  $this->data);
      
     }
+    /*
 
     /*
     public function alterarSenha() {
@@ -274,7 +276,6 @@ class Mapos extends CI_Controller {
         }
     }
 
-
     public function editarEmitente() {
         if((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))){
             redirect('index.php/mapos/login');
@@ -335,7 +336,6 @@ class Mapos extends CI_Controller {
         }
     }
 
-
     public function editarLogo(){
         if((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))){
             redirect('index.php/mapos/login');
@@ -370,6 +370,7 @@ class Mapos extends CI_Controller {
 
     }
 
+    /*
     public function addProfile(){
 
         $this->load->library('upload');
@@ -419,6 +420,6 @@ class Mapos extends CI_Controller {
             }
         }
     }#End imageProfile(){
-
+    */
 
 }
