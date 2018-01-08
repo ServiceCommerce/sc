@@ -7,5 +7,14 @@
  */
 
 class Web {
+    public $info = array();
 
-}
+    public function get(){
+        return $this->info;
+    }#End get()
+
+    public function info(){
+
+    }
+
+}#End class
