@@ -124,6 +124,7 @@ class Mapos extends CI_Controller {
     }
     */
 
+    /*
     public function backup(){
 
         if((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))){
@@ -151,7 +152,7 @@ class Mapos extends CI_Controller {
         $this->load->helper('download');
         force_download('backup'.date('d-m-Y H:m:s').'.zip', $backup);
     }
-
+    */
 
     public function emitente(){   
 

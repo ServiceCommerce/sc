@@ -9,6 +9,7 @@
  */
 
 class Core extends MY_Controller {
+
     function __construct(){
         parent::__construct();
 
@@ -51,11 +52,11 @@ class Core extends MY_Controller {
                 redirect(base_url() . 'index.php/mapos/minhaConta');
             }
         }
-    }
+    }#End alterarSenha()
 
     // metodo de saída do sistema
     public function sair(){
         $this->session->sess_destroy();
         redirect(base_url());
-    }
+    }#End sair()
 }#End class
