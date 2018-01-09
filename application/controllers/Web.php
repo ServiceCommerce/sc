@@ -12,10 +12,15 @@ class Web extends CI_Controller {
         parent::__construct();
 
         $this->load->library('site');
+        $this->load->model('Web_model');
+
     }#End __construct()
 
     public function home(){
-       echo 'teste';
+        $this->data['title'] = 'Serralheria Lobo Junior';
+        $this->data['team_current'] = 'current';
+        $this->data['view'] = 'web/Home';
+        $this->load->view('web/assets/header', $this->data);
     }#END home
 
     public function servico(){
