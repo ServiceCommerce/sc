@@ -23,7 +23,7 @@ class MY_Controller extends CI_Controller {
     }#End construct
 
     // metodo responsável por capturar ultimo url
-    protected function last_url(){
+    private function last_url(){
         if($this->session->flashdata('last_url') != null){
             $this->session->set_flashdata('last_url', current_url());
             return $this->session->flashdata('last_url');
