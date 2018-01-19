@@ -18,7 +18,7 @@ class Mapos extends MY_Controller {
     }
 
     public function index() {
-        $this->emitente();      
+        $this->emitente();
     }
 
     public function emitente(){   
