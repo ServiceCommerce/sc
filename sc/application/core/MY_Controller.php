@@ -14,8 +14,12 @@ class MY_Controller extends CI_Controller {
     function __construct(){
         parent::__construct();
 
+        $this->load->library('info_plano');
+
         // CHECANDO SESSÃO DE LOGIN
         $this->verificar_sessao();
+        // CHECANDO PARAMETROS DO SISTEMA
+        $this->checkVersion();
 
         $this->last_url = $this->last_url();
     }#End construct
@@ -36,4 +40,15 @@ class MY_Controller extends CI_Controller {
             $this->session->set_flashdata('last_url', current_url());
         }#End if
     }#End last_url()
+
+    private function checkVersion(){
+        $this->load->model('mapos_model','');
+
+        $db_version = $this->info_plano->db_version();
+        $db_current = $this->mapos_model->getDbVersion();
+
+        if($this->db != true || $db_version !== $db_current){
+            redirect(base_url('index.php/core/scPainel'));
+        }#End if
+    }#End checkVersion
 }#End class

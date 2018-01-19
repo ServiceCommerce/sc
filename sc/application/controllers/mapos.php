@@ -4,17 +4,12 @@ class Mapos extends MY_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('mapos_model','');
+
         $this->load->library('encrypt');
-        $this->load->library('info_plano');
 
         $this->load->helper(array('form', 'codegen_helper'));
 
-        $db_version = $this->info_plano->db_version();
-        $db_current = $this->mapos_model->getDbVersion();
-        if($this->db != true || $db_version !== $db_current){
-            redirect(base_url('index.php/sc/sc_painel'));
-        }
+
     }
 
     public function index() {
