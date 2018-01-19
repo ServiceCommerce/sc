@@ -36,3 +36,4 @@ application/views/
 sc/application/logs/*
 sc/docs/exibir/*
 sc/application/controllers/teste.php
+sc/assets/uploads/*
