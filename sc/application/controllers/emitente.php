@@ -1,11 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Mapos extends MY_Controller {
+class Emitente extends MY_Controller {
 
     public function __construct() {
         parent::__construct();
 
-        $this->load->library('encrypt');
+        $this->load->model('mapos_model');
 
         $this->load->helper(array('form', 'codegen_helper'));
 

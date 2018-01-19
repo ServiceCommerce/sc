@@ -51,10 +51,10 @@
 
                                 <div id="modalCadastrar" class="modal modal-primary" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-sm">
-                                        <form action="<?php echo base_url(); ?>index.php/mapos/cadastrarEmitente" id="formCadastrar" enctype="multipart/form-data" method="post" class="form-horizontal" >
+                                        <form action="<?php echo base_url(); ?>index.php/emitente/cadastrarEmitente" id="formCadastrar" enctype="multipart/form-data" method="post" class="form-horizontal" >
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                <h3 id="myModalLabel">MapOS - Cadastrar Dados do Emitente</h3>
+                                                <h3 id="myModalLabel">Cadastrar Dados do Emitente</h3>
                                             </div>
                                             <div class="modal-body">
 
@@ -173,10 +173,10 @@
 
                                 <div id="modalAlterar" class="modal modal-primary" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-sm">
-                                        <form action="<?php echo base_url(); ?>index.php/mapos/editarEmitente" id="formAlterar" enctype="multipart/form-data" method="post" class="form-horizontal" >
+                                        <form action="<?php echo base_url(); ?>index.php/emitente/editarEmitente" id="formAlterar" enctype="multipart/form-data" method="post" class="form-horizontal" >
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                <h3 id="">MapOS - Editar Dados do Emitente</h3>
+                                                <h3 id="">Editar Dados do Emitente</h3>
                                             </div>
                                             <div class="modal-body">
 
@@ -253,10 +253,10 @@
 
                                 <div id="modalLogo" class="modal modal-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-sm">
-                                        <form action="<?php echo base_url(); ?>index.php/mapos/editarLogo" id="formLogo" enctype="multipart/form-data" method="post" class="form-horizontal" >
+                                        <form action="<?php echo base_url(); ?>index.php/emitente/editarLogo" id="formLogo" enctype="multipart/form-data" method="post" class="form-horizontal" >
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                <h3 id="">MapOS - Alterar Logomarca</h3>
+                                                <h3 id="">Alterar Logomarca</h3>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="span12 alert">Selecione uma nova imagem da logomarca. Tamanho indicado (130 X 130).</div>

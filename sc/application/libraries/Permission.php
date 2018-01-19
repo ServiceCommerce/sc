@@ -167,7 +167,7 @@ class Permission{
             if($this->checkPermission($idPermissao,'cEmitente')){
                 $drop[] = array(
                     'icon1'     => 'fa fa-circle-o',
-                    'link'      => base_url('index.php/mapos/emitente'),
+                    'link'      => base_url('index.php/emitente/emitente'),
                     'nome'      => 'Emitende',
                 );
                 $menu['configuracao']['drop'] = $drop;
