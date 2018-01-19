@@ -14,6 +14,7 @@ class MY_Controller extends CI_Controller {
     function __construct(){
         parent::__construct();
 
+        // CARREGANDO BIBLIOTECAS
         $this->load->library('info_plano');
 
         // CHECANDO SESSÃO DE LOGIN
@@ -48,7 +49,7 @@ class MY_Controller extends CI_Controller {
         $db_current = $this->mapos_model->getDbVersion();
 
         if($this->db != true || $db_version !== $db_current){
-            redirect(base_url('index.php/core/scPainel'));
+            redirect(base_url('index.php/login/scPainel'));
         }#End if
     }#End checkVersion
 }#End class
