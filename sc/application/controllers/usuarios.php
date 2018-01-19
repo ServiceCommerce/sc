@@ -261,5 +261,38 @@ class Usuarios extends MY_Controller {
         $this->load->view('tema/header',  $this->data);
 
     }
+
+    // metodo responsável por ditar senhas dos usuários do sistema.
+    public function alterarSenha() {
+        if((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))){
+            redirect('mapos/login');
+        }
+
+        $this->load->library('form_validation');
+        if ($this->form_validation->run('editar_senha') == false) {
+            $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
+        } else {
+            $oldSenha = $this->input->post('oldSenha');
+            $senha = $this->input->post('novaSenha');
+            $senha2 = $this->input->post('novaSenha2');
+
+            if($senha == $senha2){
+                $oldSenha = $this->encrypt->sha1($oldSenha);
+                $senha = $this->encrypt->sha1($senha);
+                $result = $this->mapos_model->alterarSenha($senha,$oldSenha,$this->session->userdata('id'));
+                if($result){
+                    $this->session->set_flashdata('success','Syst-001');
+                    redirect(base_url() . 'index.php/mapos/minhaConta');
+                }
+                else{
+                    $this->session->set_flashdata('error','Syst-10001');
+                    redirect(base_url() . 'index.php/mapos/minhaConta');
+                }
+            }else{
+                $this->session->set_flashdata('error','Syst-10002');
+                redirect(base_url() . 'index.php/mapos/minhaConta');
+            }
+        }
+    }#End alterarSenha()
 }#End class
 

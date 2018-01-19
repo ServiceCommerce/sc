@@ -128,7 +128,7 @@
                 <div class="box-body no-padding">
                     <div class="row">
                         <div class="col-md-offset-1 col-sm-10">
-                            <form action="<?php echo base_url().'index.php/core/alterarSenha'; ?>" id="editar_senha" method="post" class="form-horizontal">
+                            <form action="<?php echo base_url().'index.php/usuarios/alterarSenha'; ?>" id="editar_senha" method="post" class="form-horizontal">
 
                                 <table class="table">
                                     <thead>
