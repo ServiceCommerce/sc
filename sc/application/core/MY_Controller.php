@@ -15,12 +15,17 @@ class MY_Controller extends CI_Controller {
         parent::__construct();
 
         // CHECANDO SESSÃO DE LOGIN
-        if ((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))) {
-            redirect('mapos/login');
-        }
+        $this->verificar_sessao();
 
         $this->last_url = $this->last_url();
     }#End construct
+
+    private function verificar_sessao(){
+        if ((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))) {
+            redirect('login/login');
+        }#End if
+    }#End verificar_login()
+
 
     // metodo responsável por capturar ultimo url
     private function last_url(){
