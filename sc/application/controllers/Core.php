@@ -21,6 +21,15 @@ class Core extends MY_Controller {
 
     }#End __construct
 
+    public function dashboard(){
+        $this->data['title'] = 'Dashboard';
+        $this->data['produtos'] = $this->mapos_model->getProdutosMinimo();
+        $this->data['menuPainel'] = 'Painel';
+        $this->data['footerScript'] = 'dashboard';
+        $this->data['view'] = 'mapos/painel';
+        $this->load->view('tema/header',  $this->data);
+    }
+
     // metodo de saída do sistema
     public function sair(){
         $this->session->sess_destroy();

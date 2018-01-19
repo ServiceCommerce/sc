@@ -40,7 +40,7 @@
 
 $route['default_controller'] = "Login";
 
-$route['dashboard'] = "mapos/index";
+$route['dashboard'] = "core/dashboard";
 $route['servico'] = 'site/servico';
 $route['contato'] = 'site/contato';
 $route['team'] = 'site/team';

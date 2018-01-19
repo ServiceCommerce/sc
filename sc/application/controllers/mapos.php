@@ -18,37 +18,7 @@ class Mapos extends MY_Controller {
     }
 
     public function index() {
-        if((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))){
-            redirect(base_url());
-        }
-
-        $this->data['title'] = 'Dashboard2';
-        //$this->data['ordens'] = $this->mapos_model->getOsAbertas();
-        $this->data['produtos'] = $this->mapos_model->getProdutosMinimo();
-        // $this->data['os'] = $this->mapos_model->getOsEstatisticas();
-        // $this->data['estatisticas_financeiro'] = $this->mapos_model->getEstatisticasFinanceiro();
-        $this->data['menuPainel'] = 'Painel';
-        $this->data['footerScript'] = 'dashboard';
-        $this->data['view'] = 'mapos/painel';
-        $this->load->view('tema/header',  $this->data);
-      
-    }
-
-    public function pesquisar() {
-        if((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))){
-            redirect('mapos/login');
-        }
-        
-        $termo = $this->input->get('termo');
-
-        $data['results'] = $this->mapos_model->pesquisar($termo);
-        $this->data['produtos'] = $data['results']['produtos'];
-        $this->data['servicos'] = $data['results']['servicos'];
-        $this->data['os'] = $data['results']['os'];
-        $this->data['clientes'] = $data['results']['clientes'];
-        $this->data['view'] = 'mapos/pesquisa';
-        $this->load->view('tema/topo',  $this->data);
-      
+        $this->emitente();      
     }
 
     public function emitente(){   
