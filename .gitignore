@@ -39,3 +39,4 @@ sc/docs/exibir/*
 sc/application/controllers/teste.php
 sc/assets/uploads/*
 sc/application/views/teste/*
+sc/application/docs/System/Json/baseApplication.php
