@@ -1,0 +1,56 @@
+{
+  "version": "0.0.1",
+
+  "menu":{
+    "dashboard": {
+      "permission": "dashboard",
+      "icon1": "fa fa-dashboard",
+      "icon2": "fa fa-angle-left pull-right",
+      "link": "index.php/dashboard",
+      "nome": "Dashboard",
+      "active": "core",
+      "method": "dashboard"
+    },
+    "clientes":{
+      "permission": "vCliente",
+      "icon1"     : "fa fa-users",
+      "icon2"     : "fa fa-angle-left pull-right",
+      "link"      : "index.php/clientes",
+      "nome"      : "Clientes",
+      "active"    : "clientes",
+      "method"    : "index"
+    },
+    "produtos":{
+      "permission": "vProduto",
+      "icon1"     : "fa fa-barcode",
+      "icon2"     : "fa fa-angle-left pull-right",
+      "link"      : "index.php/produtos",
+      "nome"      : "Produtos",
+      "active"    : "produtos",
+      "method"    : "index"
+    },
+    "categorias":{
+      "permission": "vCategoria",
+      "icon1"     : "fa fa-dashboard",
+      "icon2"     : "fa fa-angle-left pull-right",
+      "link"      : "index.php/categorias",
+      "nome"      : "Categorias",
+      "active"    : "categorias",
+      "method"    : "index"
+    },
+    "configuracoes":{
+      "permission": "",
+      "icon1"     : "fa fa-wrench",
+      "icon2"     : "fa fa-angle-left pull-right",
+      "link"      : "drop",
+      "nome"      : "Configurações",
+      "active"    : "",
+      "method"    : "index",
+      "drop"      : {
+        "usuario":{"permission":"cUsuario", "icon1":"fa fa-dashboard", "link":"index.php/usuarios", "nome":"Usuários"},
+        "emitente":{"permission":"cEmitente", "icon1":"fa fa-circle-o", "link":"index.php/emitente/emitente", "nome":"Emitende"},
+        "permissao":{"permission":"cPermissao", "icon1":"fa fa-check-square-o", "link":"index.php/permissoes", "nome":"Permissão"}
+      }
+    }
+  }
+}

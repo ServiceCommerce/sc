@@ -131,31 +131,26 @@
             <ul class="sidebar-menu">
                 <li class="header">Menu Principal</li>
                 <?php
-                $data = $this->session->userdata('permissao');
-                $resultMenu = $this->permission->menu($data);
-
-
-                foreach ($resultMenu as $menu){
-                    if($menu['link'] == 'drop'){?>
+                // loop de menu do painel
+                foreach ($this->menuPainel as $menuPainel){
+                    if($menuPainel->link == 'drop'){?>
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-wrench"></i>
-                                <span><?php echo $menu['nome'];?></span>
+                                <span><?php echo $menuPainel->nome;?></span>
                             </a>
                             <?php
-                            foreach($menu['drop'] as $drop){?>
-                                <?php if($this->permission->checkPermission($this->session->userdata('permissao'),'cUsuario')){ ?>
+                            foreach($menuPainel->drop as $drop){?>
                                     <ul class="treeview-menu">
-                                        <li><a href="<?php echo $drop['link']?>"><i class="<?php echo $drop['icon1'];?>"></i><?php echo $drop['nome'];?></a></li>
+                                        <li><a href="<?php echo base_url($drop->link)?>"><i class="<?php echo $drop->icon1;?>"></i><?php echo $drop->nome;?></a></li>
                                     </ul>
-                                <?php } ?>
                                 <?php
                             }#end FOREACH
                             ?>
                         </li>
-                        <?php
+                    <?php
                     }else{
-                        if ($this->router->fetch_class() == $menu['active'] && $this->router->fetch_method() == $menu['method']){?>
+                        if ($this->router->fetch_class() == $menuPainel->active && $this->router->fetch_method() == $menuPainel->method){?>
                             <li class="active treeview">
                             <?php
                         }else{?>
@@ -163,13 +158,13 @@
                             <?php
                         }
                         ?>
-                        <a href="<?php echo $menu['link']?>">
-                            <i class="<?php echo $menu['icon1']; ?>"></i> <span><?php echo $menu['nome'];?></span> <i class="<?php echo $menu['icon2']; ?>"></i>
+                        <a href="<?php echo base_url($menuPainel->link)?>">
+                            <i class="<?php echo $menuPainel->icon1; ?>"></i> <span><?php echo $menuPainel->nome;?></span> <i class="<?php echo $menuPainel->icon2; ?>"></i>
                         </a>
                         </li>
                         <?php
-                    }
-                }
+                    }#End if()
+                }#End foreach()
                 ?>
             </ul>
         </section>
@@ -182,27 +177,28 @@
     <div class="content-wrapper">
         <!-- Main content -->
         <div class="span12">
-            <?php if($this->session->flashdata('error') != null){
-                $this->sv_log->set('error', $this->session->flashdata('error'));
-                $flash = $this->sv_log->get();
-                ?>
-                <div class="alert alert-danger alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <h4><i class="icon fa fa-ban"></i><?php echo $flash['title'];?></h4>
-                    <?php echo $flash['msg'];?>
-                </div>
-            <?php }?>
+            <?php
+                if(isset($this->messageLog)){
+                   if($this->messageLog->cod <= '10000'){
+            ?>
+                       <div class="alert alert-success alert-dismissable">
+                           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                           <h4><i class="icon fa fa-check"></i><?php echo $this->messageLog->title;?></h4>
+                           <?php echo $this->messageLog->message;?>
+                       </div>
+            <?php
+                   }else{
+                       ?>
+                       <div class="alert alert-danger alert-dismissable">
+                           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                           <h4><i class="icon fa fa-check"></i><?php echo $this->messageLog->title;?></h4>
+                           <?php echo $this->messageLog->message;?>
+                       </div>
+                       <?php
 
-            <?php if($this->session->flashdata('success') != null){
-                $this->sv_log->set('success', $this->session->flashdata('success'));
-                $flash = $this->sv_log->get();
-                ?>
-                <div class="alert alert-success alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <h4><i class="icon fa fa-check"></i><?php echo $flash['title'];?></h4>
-                    <?php echo $flash['msg'];?>
-                </div>
-            <?php }?>
+                   }
+                }#End if(isset($this->messageLog)){
+            ?>
 
             <?php if(isset($view)){echo $this->load->view($view);}?>
 

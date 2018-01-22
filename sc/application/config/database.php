@@ -1,4 +1,8 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+include_once ('application/helpers/baseApplication.php');
+$baseApp = BaseApp();
+
 /*
 | -------------------------------------------------------------------
 | DATABASE CONNECTIVITY SETTINGS
@@ -48,14 +52,14 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = (ENVIRONMENT !== 'production')? 'localhost' : '';
-$db['default']['username'] = (ENVIRONMENT !== 'production')? 'root' : '';
-$db['default']['password'] = (ENVIRONMENT !== 'production')? '' : '';
-$db['default']['database'] = (ENVIRONMENT !== 'production')? 'BD_LANORA' : '';
+$db['default']['hostname'] = $baseApp->db_hostname;
+$db['default']['username'] = $baseApp->db_username;
+$db['default']['password'] = $baseApp->db_password;
+$db['default']['database'] = $baseApp->db_database;
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
-$db['default']['db_debug'] = (ENVIRONMENT !== 'production');
+$db['default']['db_debug'] = $baseApp->db_debug;
 $db['default']['cache_on'] = FALSE;
 $db['default']['cachedir'] = '';
 $db['default']['char_set'] = 'utf8';

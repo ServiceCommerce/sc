@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+include_once ('sc/application/helpers/baseApplication.php');
+$webApp = webApp();
+
 /*
 | -------------------------------------------------------------------
 | DATABASE CONNECTIVITY SETTINGS
@@ -75,14 +78,14 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'BD_LANORA',
+	'hostname' => $webApp->db_hostname,
+	'username' => $webApp->db_username,
+	'password' => $webApp->db_password,
+	'database' => $webApp->db_database,
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
-	'db_debug' => (ENVIRONMENT !== 'production'),
+	'db_debug' => $webApp->db_debug,
 	'cache_on' => FALSE,
 	'cachedir' => '',
 	'char_set' => 'utf8',

@@ -1,5 +1,6 @@
 <?php
-
+include_once ('application/helpers/baseApplication.php');
+$baseApp = BaseApp();
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
@@ -18,7 +19,7 @@
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
-	define('ENVIRONMENT', 'development');
+	define('ENVIRONMENT', $baseApp->status);
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING

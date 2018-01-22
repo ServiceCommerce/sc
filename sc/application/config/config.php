@@ -1,5 +1,8 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+include_once ('application/helpers/baseApplication.php');
+$baseApp = BaseApp();
+
 /*
 |--------------------------------------------------------------------------
 | Base site URL
@@ -14,7 +17,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/web/GitHub/sc/sc/';
+$config['base_url']	= $baseApp->baseUrl;
 
 /*
 |--------------------------------------------------------------------------

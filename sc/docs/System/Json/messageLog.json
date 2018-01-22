@@ -1,0 +1,383 @@
+{
+  "version": "0.0.1",
+
+  "message":{
+    "Prod": {
+      "001": {
+        "title"   : "Sucesso",
+        "cod"     : "001",
+        "message" : "Produto cadastrado com sucesso!"
+      },
+      "002": {
+        "title"   : "Sucesso",
+        "cod"     : "002",
+        "message" : "Produto adicionado com sucesso! Cadastrar parametros de exibição"
+      },
+      "003": {
+        "title"   : "Sucesso",
+        "cod"     : "003",
+        "message" : "Produto adicionado com sucesso!"
+      },
+      "004": {
+        "title"   : "Sucesso",
+        "cod"     : "004",
+        "message" : "Produto excluido com sucesso!"
+      },
+      "005": {
+        "title"   : "Sucesso",
+        "cod"     : "005",
+        "message" : "Todas as imagens foram gravadas com sucesso!"
+      },
+      "006": {
+        "title"   : "Sucesso",
+        "cod"     : "006",
+        "message" : "Produto editado com sucesso!"
+      },
+      "10001": {
+        "title"   : "Erro",
+        "cod"     : "10001",
+        "message" : "Você não tem permissão para visualizar produtos."
+      },
+      "10002": {
+        "title"   : "Erro",
+        "cod"     : "10002",
+        "message" : "Você não tem permissão para adicionar produtos."
+      },
+      "10003": {
+        "title"   : "Erro",
+        "cod"     : "10003",
+        "message" : "Você deve adicionar uma CATEGORIA antes de adicionar um produto."
+      },
+      "10004": {
+        "title"   : "Erro",
+        "cod"     : "10004",
+        "message" : "Você não tem permissão para editar produtos."
+      },
+      "10005": {
+        "title"   : "Erro",
+        "cod"     : "10005",
+        "message" : "Produto não encontrado."
+      },
+      "10006": {
+        "title"   : "Erro",
+        "cod"     : "10006",
+        "message" : "Você não tem permissão para excluir produtos."
+      },
+      "10007": {
+        "title"   : "Erro",
+        "cod"     : "10007",
+        "message" : "Erro ao tentar excluir produto."
+      },
+      "10008": {
+        "title"   : "Erro",
+        "cod"     : "10008",
+        "message" : "Você não tem permissão para publicar no site."
+      },
+      "10009": {
+        "title"   : "Erro",
+        "cod"     : "10009",
+        "message" : "Uma ou mais imagens não foram gravadas"
+      }
+    },
+    "Cate": {
+      "001": {
+        "title"   : "Sucesso",
+        "cod"     : "001",
+        "message" : "Categoria adicionado com sucesso!"
+      },
+      "002": {
+        "title"   : "Sucesso",
+        "cod"     : "002",
+        "message" : "Categoria editada com sucesso."
+      },
+      "003": {
+        "title"   : "Sucesso",
+        "cod"     : "003",
+        "message" : "Categoria excluida com sucesso!"
+      },
+      "10001": {
+        "title"   : "Erro",
+        "cod"     : "10001",
+        "message" : "Você não tem permissão para adicionar Categorias."
+      },
+      "10002": {
+        "title"   : "Erro",
+        "cod"     : "10002",
+        "message" : "Houve um erro ao adicionar categoria."
+      },
+      "10003": {
+        "title"   : "Erro",
+        "cod"     : "10003",
+        "message" : "Você não tem permissão para editar Categorias."
+      },
+      "10004": {
+        "title"   : "Erro",
+        "cod"     : "10004",
+        "message" : "Erro ao tentar editar categoria."
+      },
+      "10005": {
+        "title"   : "Erro",
+        "cod"     : "10005",
+        "message" : "Você não tem permissão para visualizar Categorias."
+      },
+      "10006": {
+        "title"   : "Erro",
+        "cod"     : "10006",
+        "message" : "Você não tem permissão para excluir categorias."
+      },
+      "10007": {
+        "title"   : "Erro",
+        "cod"     : "10007",
+        "message" : "Erro ao tentar excluir a Categoria."
+      },
+      "10008": {
+        "title"   : "Erro",
+        "cod"     : "10008",
+        "message" : "Categorias com produtos divulgados no site só poderão ser excluidos após migração de todos os produtos para nova categoria"
+      }
+    },
+    "Syst":{
+      "001": {
+        "title"   : "Sucesso",
+        "cod"     : "001",
+        "message" : "Senha Alterada com sucesso!"
+      },
+      "002": {
+        "title"   : "Sucesso",
+        "cod"     : "002",
+        "message" : "As informações foram inseridas com sucesso."
+      },
+      "003": {
+        "title"   : "Sucesso",
+        "cod"     : "003",
+        "message" : "As informações foram alteradas com sucesso."
+      },
+      "004": {
+        "title"   : "Sucesso",
+        "cod"     : "004",
+        "message" : "Sua foto foi alterada com sucesso!"
+      },
+      "005": {
+        "title"   : "Sucesso",
+        "cod"     : "005",
+        "message" : "No próximo login seus dados serão alterados!"
+      },
+      "006": {
+        "title"   : "Sucesso",
+        "cod"     : "006",
+        "message" : "As informações foram alteradas com sucesso!"
+      },
+
+      "10001": {
+        "title"   : "Erro",
+        "cod"     : "10001",
+        "message" : "Ocorreu um erro ao tentar alterar a senha!"
+      },
+      "10002": {
+        "title"   : "Erro",
+        "cod"     : "10002",
+        "message" : "Senhas não são iguais, tente novamente."
+      },
+      "10003": {
+        "title"   : "Erro",
+        "cod"     : "10003",
+        "message" : "Você não tem permissão para efetuar backup."
+      },
+      "10004": {
+        "title"   : "Erro",
+        "cod"     : "10004",
+        "message" : "Você não tem permissão para configurar emitente."
+      },
+      "10005": {
+        "title"   : "Erro",
+        "cod"     : "10005",
+        "message" : "Você não tem permissão para configurar emitente."
+      },
+      "10006": {
+        "title"   : "Erro",
+        "cod"     : "10006",
+        "message" : "Você não tem permissão para configurar emitente."
+      },
+      "10007": {
+        "title"   : "Erro",
+        "cod"     : "10007",
+        "message" : "Houve um errro ao se conectar com o banco de dados, contate o suporte ou tente mais tarde."
+      },
+      "10008": {
+        "title"   : "Erro",
+        "cod"     : "10008",
+        "message" : "Campos obrigatórios não foram preenchidos."
+      },
+      "10009": {
+        "title"   : "Erro",
+        "cod"     : "10009",
+        "message" : "Ocorreu um erro ao tentar inserir as informações."
+      },
+      "10010": {
+        "title"   : "Erro",
+        "cod"     : "10010",
+        "message" : "Você não tem permissão para configurar emitente."
+      },
+      "10011": {
+        "title"   : "Erro",
+        "cod"     : "10011",
+        "message" : "Campos obrigatórios não foram preenchidos."
+      },
+      "10012": {
+        "title"   : "Erro",
+        "cod"     : "10012",
+        "message" : "Ocorreu um erro ao tentar alterar as informações."
+      },
+      "10013": {
+        "title"   : "Erro",
+        "cod"     : "10013",
+        "message" : "Você não tem permissão para configurar emitente."
+      },
+      "10014": {
+        "title"   : "Erro",
+        "cod"     : "10014",
+        "message" : "Ocorreu um erro ao tentar alterar a logomarca."
+      },
+      "10015": {
+        "title"   : "Erro",
+        "cod"     : "10015",
+        "message" : "Ocorreu um erro ao tentar alterar as informações."
+      },
+      "10016": {
+        "title"   : "Erro",
+        "cod"     : "10016",
+        "message" : "Não foi possivel subir a imagem para um servidor. Desculpe."
+      }
+    },
+    "Clie":{
+      "001": {
+        "title"   : "Sucesso",
+        "cod"     : "001",
+        "message" : "Cliente adicionado com sucesso!"
+      },
+      "002": {
+        "title"   : "Sucesso",
+        "cod"     : "002",
+        "message" : "Dados alterados com sucesso!"
+      },
+      "003": {
+        "title"   : "Sucesso",
+        "cod"     : "003",
+        "message" : "Cliente excluido com sucesso!"
+      },
+
+      "10001": {
+        "title"   : "Erro",
+        "cod"     : "10001",
+        "message" : "Você não tem permissão para visualizar clientes."
+      },
+      "10002": {
+        "title"   : "Erro",
+        "cod"     : "10002",
+        "message" : "Você não tem permissão para adicionar clientes."
+      },
+      "10003": {
+        "title"   : "Erro",
+        "cod"     : "10003",
+        "message" : "Erro ao tentar adicionar cliente"
+      },
+      "10004": {
+        "title"   : "Erro",
+        "cod"     : "10004",
+        "message" : "Erro ao tentar cadastrar"
+      },
+      "10005": {
+        "title"   : "Erro",
+        "cod"     : "10005",
+        "message" : "Você não tem permissão para editar clientes."
+      },
+      "10006": {
+        "title"   : "Erro",
+        "cod"     : "10006",
+        "message" : "Erro ao tentar alterar os dados, alguns campos pode não ter sido alterados."
+      },
+      "10007": {
+        "title"   : "Erro",
+        "cod"     : "10007",
+        "message" : "Você não tem permissão para visualizar clientes."
+      },
+      "10008": {
+        "title"   : "Erro",
+        "cod"     : "10008",
+        "message" : "Você não tem permissão para excluir clientes."
+      },
+      "10009": {
+        "title"   : "Erro",
+        "cod"     : "10009",
+        "message" : "Erro ao tentar excluir cliente."
+      }
+
+    },
+    "Perm":{
+      "001": {
+        "title"   : "Sucesso",
+        "cod"     : "001",
+        "message" : "Permissão adicionada com sucesso!"
+      },
+      "002": {
+        "title"   : "Sucesso",
+        "cod"     : "002",
+        "message" : "Permissão editada com sucesso!"
+      },
+      "003": {
+        "title"   : "Sucesso",
+        "cod"     : "003",
+        "message" : "Serviço excluido com sucesso!"
+      },
+      "004": {
+        "title"   : "Sucesso",
+        "cod"     : "004",
+        "message" : "Categoria desativada com sucesso!"
+      },
+
+      "10001": {
+        "title"   : "Erro",
+        "cod"     : "10001",
+        "message" : "Você não tem permissão para configurar as permissões no sistema."
+      },
+      "10002": {
+        "title"   : "Erro",
+        "cod"     : "10002",
+        "message" : "Erro ao tentar excluir serviço."
+      },
+      "10003": {
+        "title"   : "Erro",
+        "cod"     : "10003",
+        "message" : "Não foi possivel desativa a Categoria."
+      },
+      "10004": {
+        "title"   : "Erro",
+        "cod"     : "10004",
+        "message" : "Nenhum parâmetro foi passado, entre em contato com o suporte"
+      }
+    },
+    "User":{
+      "001": {
+        "title"   : "Sucesso",
+        "cod"     : "001",
+        "message" : "Usuário cadastrado com sucesso!"
+      },
+      "002": {
+        "title"   : "Sucesso",
+        "cod"     : "002",
+        "message" : "Usuário editado com sucesso!"
+      },
+
+      "10001": {
+        "title"   : "Erro",
+        "cod"     : "10001",
+        "message" : "Você não tem permissão para configurar os usuários."
+      },
+      "10002": {
+        "title"   : "Erro",
+        "cod"     : "10002",
+        "message" : "O usuário super admin não pode ser desativado!"
+      }
+    }
+  }
+}

@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+include_once ('sc/application/helpers/baseApplication.php');
+$webApp = webApp();
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -23,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/web/GitHub/sc/';
+$config['base_url'] = $webApp->baseUrl;
 
 /*
 |--------------------------------------------------------------------------

@@ -10,21 +10,28 @@
 
 class MY_Controller extends CI_Controller {
     public $last_url;
+    public $menuPainel;
+    public $messageLog;
 
     function __construct(){
         parent::__construct();
 
-        // CARREGANDO BIBLIOTECAS
         $this->load->library('info_plano');
+        $this->load->library('flashMenseger');
 
         // CHECANDO SESSÃO DE LOGIN
         $this->verificar_sessao();
         // CHECANDO PARAMETROS DO SISTEMA
         $this->checkVersion();
+        // GERANDO MENU
+        $this->menuPainel = $this->getMenu($this->json->menu());
+        // SETA MENSAGEM DE FLASHDATA
+        $this->messageLog = $this->messagemLog();
 
         $this->last_url = $this->last_url();
     }#End construct
 
+    // METODO RESPONSÁVEL POR VERIFICAR SESSÃO DO USUÁRIO
     private function verificar_sessao(){
         if ((!$this->session->userdata('session_id')) || (!$this->session->userdata('logado'))) {
             redirect('login/login');
@@ -52,4 +59,42 @@ class MY_Controller extends CI_Controller {
             redirect(base_url('index.php/login/scPainel'));
         }#End if
     }#End checkVersion
+
+    private function getMenu($menuPainel){
+        $dados = array(); // recebe todos os dados
+        $dropResult = array(); //recebe os dados referentes ao drop
+        $check; // apontador para permissão consecida por algum drop
+        foreach ($menuPainel as $menu){
+            if($menu->link == 'drop'){ // verifica de há drop
+                foreach ($menu->drop as $drop){
+                    if($this->permission->checkpermission($this->session->userdata('permissao'), $drop->permission)){
+                        $check = true;
+                        $dropResult[] = $drop;
+                    }#End if()
+                }#End foreach()
+
+                if($check == true){ // caso exista drop e o usuário tenha permissão
+                    $menu->drop = $dropResult;
+                    $dados[] = $menu;
+                }
+            }else{
+                if($menu->permission != 'dashboard'){ //todos os usuário tem acesso a dashboard
+                    if($this->permission->checkpermission($this->session->userdata('permissao'), $menu->permission)){
+                        $dados[] = $menu;
+                    }
+                }else{
+                    $dados[] = $menu;
+                }
+            }#End if()
+        }#End foreach()
+        return $dados;
+    }#End getMenu()
+
+    public function messagemLog(){
+        if($this->session->flashdata('success') != null){
+            return $this->flashmenseger->get($this->session->flashdata('success'));
+        }elseif ($this->session->flashdata('error') != null){
+            return $this->flashmenseger->get($this->session->flashdata('error'));
+        }
+    }#End flashMenseger()
 }#End class
