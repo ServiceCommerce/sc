@@ -9,10 +9,11 @@ class Mapos extends CI_Controller {
         $this->load->library('info_plano');
 
         $this->load->helper(array('form', 'codegen_helper'));
-        $version = $this->info_plano->checkDbVersion($this->mapos_model->getDbVersion());
 
-        if($version[0] == true){
-            redirect(base_url('index.php/erro/db_error_version'));
+        $db_version = $this->info_plano->db_version();
+        $db_current = $this->mapos_model->getDbVersion();
+        if($this->db != true || $db_version !== $db_current){
+            redirect(base_url('index.php/sc/sc_painel'));
         }
     }
 
@@ -119,7 +120,6 @@ class Mapos extends CI_Controller {
             redirect(base_url() . 'index.php/dashboard');
         }
         $this->load->view('mapos/login');
-
     }
 
     public function sair(){

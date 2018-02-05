@@ -79,9 +79,11 @@ class Clientes extends CI_Controller {
             $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
         } else {
             $data = array(
-                'nome' => set_value('nomeCliente'),
-                'documento' => set_value('documento'),
-                'dataCadastro' => date('Y-m-d')
+                'nome'          => set_value('nomeCliente'),
+                'documento'     => set_value('documento'),
+                'dataCadastro'  => date('Y-m-d'),
+                'email'         => $this->input->post('email'),
+                'senha'         => $this->input->post('telefone')
             );
 
             $id = $this->clientes_model->add('clientes', $data, TRUE);
@@ -213,7 +215,7 @@ class Clientes extends CI_Controller {
         $this->data['resultContato'] = $this->contatos_model->getById('contato', $this->uri->segment(3));
         $this->data['resultEndereco'] =$this->endereco_model->getById($this->uri->segment(3));
 
-        $this->data['resultOS'] = $this->clientes_model->getOsByCliente($this->uri->segment(3));
+        //$this->data['resultOS'] = $this->clientes_model->getOsByCliente($this->uri->segment(3));
         $this->data['view'] = 'clientes/visualizar';
         $this->load->view('tema/header', $this->data);
 

@@ -13,8 +13,11 @@
         <script src="<?php echo base_url()?>js/jquery-1.10.2.min.js"></script>
     </head>
     <body>
-        <div id="loginbox">            
-            <form  class="form-vertical" id="formLogin" method="post" action="<?php echo base_url()?>index.php/client/login">
+    <?php
+    var_dump($this->session->userdata());
+    ?>
+        <div id="loginbox">
+            <form  class="form-vertical" id="formLogin" method="post" action="<?php echo base_url()?>index.php/login/check_login">
                   <?php if($this->session->flashdata('error') != null){?>
                         <div class="alert alert-danger">
                           <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -32,7 +35,7 @@
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
-                            <span class="add-on bg_ly"><i class="icon-star"></i></span><input name="telefone" type="text" placeholder="Telefone | Ex: 9999-9999" />
+                            <span class="add-on bg_ly"><i class="icon-star"></i></span><input name="telefone" id="telefone" type="text" placeholder="Telefone | Ex: 9999-9999" />
                         </div>
                     </div>
                 </div>

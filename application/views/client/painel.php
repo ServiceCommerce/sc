@@ -1,4 +1,6 @@
-
+<?php
+var_dump($this->session->userdata());
+?>
   <div class="quick-actions_homepage">
     <ul class="quick-actions">
       <li class="bg_lo span3"> <a href="<?php echo base_url()?>index.php/conecte/os"> <i class="icon-tags"></i> Ordens de Serviço</a> </li>
