@@ -77,8 +77,13 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	'username' => 'root',
+<<<<<<< HEAD
 	'password' => 'soares20',
 	'database' => 'bd_lanora',
+=======
+	'password' => '',
+	'database' => 'BD_LANORA',
+>>>>>>> eb7b7a90800f1d2f15bc81f6724c09e256894634
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

@@ -14,7 +14,11 @@
 | path to your installation.
 |
 */
+<<<<<<< HEAD
 $config['base_url']	= 'http://localhost/web/GitHub/sc/sc';
+=======
+$config['base_url']	= 'http://localhost/web/GitHub/sc/sc/';
+>>>>>>> eb7b7a90800f1d2f15bc81f6724c09e256894634
 
 /*
 |--------------------------------------------------------------------------

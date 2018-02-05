@@ -50,12 +50,17 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
+<<<<<<< HEAD
 $db['default']['password'] = 'soares20';
 $db['default']['database'] = 'db_lanora';
+=======
+$db['default']['password'] = '';
+$db['default']['database'] = 'BD_LANORA';
+>>>>>>> eb7b7a90800f1d2f15bc81f6724c09e256894634
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
-$db['default']['db_debug'] = FALSE;
+$db['default']['db_debug'] = (ENVIRONMENT !== 'production');
 $db['default']['cache_on'] = FALSE;
 $db['default']['cachedir'] = '';
 $db['default']['char_set'] = 'utf8';
